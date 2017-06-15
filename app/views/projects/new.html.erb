@@ -1,0 +1,103 @@
+<h2><b>Add New Project</b></h2>
+<%= bootstrap_form_for :project , url: projects_path do |f| %>
+
+<% if @project.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger" role="alert">
+    <h3>
+      <%= pluralize(@project.errors.count, "error") %> Prohibited
+      this Project from being saved:
+</h3>
+    <ul class="list-group">
+      <% @project.errors.full_messages.each do |msg| %>
+        <li class="list-group-item"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<hr>
+
+<div class="row">
+       <div class="col-lg-6">
+             <div class="form-group">
+                  <%= f.text_field :jobid ,  label: "Job Code", :required => true  %>
+            </div>
+      </div>
+      <div class="col-lg-6">
+            <div class="form-group">
+                  <%= f.text_field :projectname ,  label: "Project Name" ,:required => true %>
+            </div>
+      </div>
+</div>
+      <div class="row">
+             <div class="col-lg-6">
+                   <div class="form-group">
+                        <%= f.text_field :clientname ,  label: "Client Name",:required => true %>
+                  </div>
+            </div>
+            <div class="col-lg-6">
+                  <div class="form-group">
+                        <%= f.date_field :startdate ,value: Date.today,  label: "Start Date",:required => true %>
+                  </div>
+            </div>
+      </div>
+      <div class="row">
+            <div class="col-lg-6">
+                  <div class="form-group">
+                        <%= f.select(:projectstatus, ['Pipeline','Ongoing','On Hold','Completed'], {label: "Project Status"})  %>
+                  </div>
+            </div>
+            <div class="col-lg-6">
+                  <div class="form-group">
+                      <%= f.select(:sbu, ['Mumbai','Delhi','Bangalore','QCS India'], {label: "Subsidiary Business Unit"}) %>
+                    </div>
+            </div>
+      </div>
+  <div class="form-group">
+        <%= f.text_field :user_id,value: current_user.id ,type: 'hidden' , class: 'form-control' , hide_label: true %>
+  </div>
+
+
+<div class="row">
+      <div class="col-lg-6">
+            <div class="form-group">
+                  <%= f.select :project_lead, [],{ label: "Select Chef"}  do %>
+                        <% if(@projectleads.blank?) %>
+                              <option value= 0>No Chef Available</option>
+                        <% else %>
+                              <% @projectleads.each do |pl| -%>
+                                    <option value="<%=  pl.id %>"><%= pl.username %></option>
+                              <% end %>
+                        <% end %>
+                   <% end %>
+            </div>
+      </div>
+      <div class="col-lg-6">
+            <div class="form-group">
+                  <%= f.select :project_manager,[],  label: "Select Co-Ordinator" do %>
+                        <% if(@projectmanagers.blank?) %>
+                              <option value= 0>No Co-Ordinator Available</option>
+                        <% else %>
+                              <% @projectmanagers.each do |pm| -%>
+                                    <option value="<%=  pm.id %>"><%= pm.username %></option>
+                              <% end %>
+                        <% end %>
+                   <% end %>
+            </div>
+      </div>
+</div>
+<div class="row">
+      <div class="col-lg-6 pull-right">
+            <div class="form-group">
+                  <%= f.submit "Create Project", class: 'btn btn-primary pull-right' %>
+            </div>
+      </div>
+      <div class="col-lg-6">
+
+      </div>
+</div>
+<% end %>
+<br />
+<hr>
+
+<%= link_to 'Back', projects_path , class: 'btn btn-default pull-right' %>

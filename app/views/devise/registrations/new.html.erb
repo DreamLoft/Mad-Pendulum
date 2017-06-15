@@ -1,0 +1,57 @@
+<style>
+        body{
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        .panel{
+            width: 500px;
+            margin-left: 30%;
+            margin-right: 30%;
+            margin-top: 10%;
+        }
+        .btn{
+            width: 100%;
+            font-family: serif;
+            border-radius: 5px;
+        }
+    </style>
+
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <%= image_tag("qtm.png", :alt => "rss feed" ,class: 'center-block') %>
+  </div>
+  <div class="panel-body field form-group ">
+
+    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="field form-group">
+      <%= f.text_field :username, placeholder: "Enter Full Name", autofocus: true, class: 'form-control', hide_label: true  %>
+    </div>
+    <div class="field form-group">
+      <%= f.text_field :mobileno, type: "tel", placeholder: "Enter Phone Number" , class: 'form-control', hide_label: true  %>
+    </div>
+    <div class="field form-group">
+              <%= f.text_field :employee_id , placeholder: "Enter Employee ID (101)", class: 'form-control', hide_label: true  %>
+    </div>
+    <div class="field form-group">
+            <%= f.email_field :email, placeholder: "abc@quantumcs.com", class: 'form-control', hide_label: true  %>
+      </div>
+
+    <div class="field form-group">
+      <%= f.password_field :password,placeholder: "Enter Password" ,autocomplete: "off", class: 'form-control estimate-password',hide_label: true %>
+      <% if @validatable %>
+        <span class="help-block"><%= @minimum_password_length %> characters minimum</span>
+      <% end %>
+</div>
+<div class="field form-group">
+      <%= f.password_field :password_confirmation,placeholder: "Confirm Password", autocomplete: "off", class: 'form-control estimate-password' , hide_label: true %>
+      </div>
+      <hr>
+
+  <%= f.submit "Sign up", class: 'btn btn-primary btn-md center-block' %>
+    </div>
+    <% end %>
+
+    <div class="panel-footer text-center">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>

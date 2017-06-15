@@ -1,0 +1,374 @@
+wb = xlsx_package.workbook
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Timesheets") do |sheet|
+          if(@proposal || @project_mangment || @project_mangment || @rq || @discussion_guide || @fieldwork || @transcription_and_ca || @debrief || @final_presentation || @travel  || @leadership || @non_job_Tasks)
+                    sheet.add_row ["Project","Designation"]
+                    sheet.add_row [@project,@designation]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["Category","Time Spent"]
+                    sheet.add_row ["Proposal", @proposal ]
+                    sheet.add_row ["Project Management", @project_mangment ]
+                    sheet.add_row ["RQ", @rq ]
+                    sheet.add_row ["Discussion Guide", @discussion_guide ]
+                    sheet.add_row ["Fieldwork", @fieldwork ]
+                    sheet.add_row ["Transcription and CA", @transcription_and_ca ]
+                    sheet.add_row ["Debrief", @debrief ]
+                    sheet.add_row ["Final Presentation",  @final_presentation ]
+                    sheet.add_row ["Non Job Tasks", @non_job_Tasks ]
+                    sheet.add_row ["Leadership", @leadership ]
+                    sheet.add_row ["Travel", @travel ]
+                    sheet.add_chart(Axlsx::Bar3DChart, :start_at => "H5", :end_at => "Z40") do |chart|
+                              chart.add_series :data => sheet["B7:B17"], :labels => sheet["A7:A17"], :title => "Category Stats", :colors => ["00FA00","FF0B00","00C0FF","D0F0FF","FF00FF","FFFA00","F0FB00","0F0FCF","FF0F0D","0F0F0E","F0000F" ]
+                              chart.valAxis.gridlines = false
+                              chart.catAxis.gridlines = false
+                    end
+
+          elsif(@research_executive || @senior_research_executive || @associate_research_manager || @research_manager || @senior_research_manager || @associate_vice_president || @vice_president || @senior_vice_president || @executive_officer || @chief_operating_officer || @director || @operations_executive || @senior_operations_executive || @associate_manager_operations ||  @manager_operations || @senior_manager_operations  )
+                    sheet.add_row ["Project","Category","Task"]
+                    sheet.add_row [@project,@category,@task]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["Designation","Time Spent"]
+                    sheet.add_row ["Research Executive (RE)", @research_executive]
+                    sheet.add_row ["Senior Research Executive (SRE)",@senior_research_executive]
+                    sheet.add_row ["Associate Research Manager (AM)", @associate_research_manager]
+                    sheet.add_row ["Research Manager (RM)", @research_manager]
+                    sheet.add_row ["Senior Research Manager (SRM)", @senior_research_manager ]
+                    sheet.add_row ["Associate Vice President (AVP)", @associate_vice_president ]
+                    sheet.add_row ["Vice President (VP)",  @vice_president ]
+                    sheet.add_row ["Senior Vice President (SVP)", @senior_vice_president ]
+                    sheet.add_row ["Executive Officer (CEO)", @executive_officer ]
+                    sheet.add_row ["Chief Operating Officer (COO)", @chief_operating_officer]
+                    sheet.add_row ["Director", @director ]
+                    sheet.add_row ["Operations Executive (OE)", @operations_executive ]
+                    sheet.add_row ["Senior Operations Executive (SOE)", @senior_operations_executive ]
+                    sheet.add_row ["Associate Manager Operations (AMO)", @associate_manager_operations ]
+                    sheet.add_row ["Manager Operations (MO)", @manager_operations ]
+                    sheet.add_row ["Senior Manager Operations (SMO)", @senior_manager_operations ]
+                    sheet.add_chart(Axlsx::Bar3DChart, :start_at => "H5", :end_at => "Z60") do |chart|
+                              chart.add_series :data => sheet["B7:B22"], :labels => sheet["A7:A22"], :title => "Designation Stats", :colors => ["00FA00","FF0B00","00C0FF","D0F0FF","FF00FF","FFFA00","F0FB00","0F0FCF","FF0F0D","0F0F0E","F0000F","FAFA00","FBFB00","FA00AD","DD00AA","BB0AAF" ]
+                              chart.valAxis.gridlines = false
+                              chart.catAxis.gridlines = false
+                    end
+
+          elsif(@mumbai || @delhi || @bangalore || @qcs_india )
+                    sheet.add_row ["Category","Designation"]
+                    sheet.add_row [@category,@designation]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["SBU","Time Spent"]
+                    sheet.add_row ["Mumbai", @mumbai ]
+                    sheet.add_row ["Delhi", @delhi]
+                    sheet.add_row ["Bangalore", @bangalore ]
+                    sheet.add_row ["QCS India", @qcs_india ]
+                    sheet.add_row ["M", @m ]
+                    sheet.add_row ["Ethno", @ethno ]
+                    sheet.add_row ["UL", @ul ]
+                    sheet.add_chart(Axlsx::Bar3DChart, :start_at => "H5", :end_at => "Z19") do |chart|
+                              chart.add_series :data => sheet["B7:B13"], :labels => sheet["A7:A13"], :title => "SBU Stats", :colors => ["00FF00", "0000FF","0F00FF","00F0FF","00FF0F","00F0F0","F0FF00"]
+                              chart.valAxis.gridlines = false
+                              chart.catAxis.gridlines = false
+                    end
+          elsif(@pros)
+                    sheet.add_row ["Category","Task","Designation"]
+                    sheet.add_row [@category,@task ,@designation]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["", "" ]
+                    sheet.add_row ["Project","Time Spent"]
+                    @pros.each{|key,value|
+                    sheet.add_row [key, value ]
+                    }
+                    sheet.add_chart(Axlsx::Bar3DChart, :start_at => "H5", :end_at => "Z#{5+(@projects.length*4)}") do |chart|
+                              chart.add_series :data => sheet["B7:B#{6+@projects.length}"], :labels => sheet["A7:A#{6+@projects.length}"], :title => "Projects Stats", :colors => @projects.map { "00FF00" }
+                              chart.valAxis.gridlines = false
+                              chart.catAxis.gridlines = false
+                    end
+          elsif(@categoryStack)
+
+          if(@categoryStack == "feeling")
+            sheet.add_row ["Category","Very Sad","Sad", "Neutral", "Happy", "Very Happy"]
+            sheet.add_row ["Proposal", @proposalCategory[:one] ,@proposalCategory[:two], @proposalCategory[:three], @proposalCategory[:four], @proposalCategory[:five]]
+            sheet.add_row ["Project Management", @pmCategory[:one],@pmCategory[:two], @pmCategory[:three], @pmCategory[:four], @pmCategory[:five]]
+            sheet.add_row ["RQ", @rqCategory[:one],@rqCategory[:two], @rqCategory[:three], @rqCategory[:four], @rqCategory[:five]]
+            sheet.add_row ["Discussion Guide", @dgCategory[:one],@dgCategory[:two], @dgCategory[:three], @dgCategory[:four], @dgCategory[:five]]
+            sheet.add_row ["Fieldwork", @fieldworkCategory[:one] , @fieldworkCategory[:two] ,  @fieldworkCategory[:three] ,  @fieldworkCategory[:four] , @fieldworkCategory[:five] ]
+            sheet.add_row ["Transcription and CA", @transcription_and_caCategory[:one],@transcription_and_caCategory[:two], @transcription_and_caCategory[:three], @transcription_and_caCategory[:four], @transcription_and_caCategory[:five]]
+            sheet.add_row ["Debrief", @debriefCategory[:one] ,  @debriefCategory[:two] ,   @debriefCategory[:three],   @debriefCategory[:four],   @debriefCategory[:five]]
+            sheet.add_row ["Final Presentation", @fpCategory[:one], @fpCategory[:two],  @fpCategory[:three],  @fpCategory[:four], @fpCategory[:five]]
+            sheet.add_row ["Travel",@travelCategory[:one],@travelCategory[:two], @travelCategory[:three], @travelCategory[:four], @travelCategory[:five]]
+            sheet.add_row ["Leadership", @leadershipCategory[:one] ,@leadershipCategory[:two],  @leadershipCategory[:three], @leadershipCategory[:four], @leadershipCategory[:five]]
+            sheet.add_row ["Non Job Tasks",@non_jobCategory[:one],@non_jobCategory[:two], @non_jobCategory[:three], @non_jobCategory[:four], @non_jobCategory[:five]]
+            sheet.add_chart(Axlsx::Bar3DChart, :start_at => "G2", :end_at => "Z30", :title => "Designation stack by #{@designationStack}",:grouping=> :stacked) do |chart|
+              chart.add_series :data => sheet["B2:B12"], :labels => sheet["A2:A12"], :title => sheet["B1"], :colors => ['D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633']
+              chart.add_series :data => sheet["C2:C12"], :labels => sheet["A2:A12"], :title => sheet["C1"], :colors => ['358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795']
+              chart.add_series :data => sheet["D2:D12"], :labels => sheet["A2:A12"], :title => sheet["D1"], :colors => ['A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B']
+              chart.add_series :data => sheet["E2:E12"], :labels => sheet["A2:A12"], :title => sheet["E1"], :colors => ['F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420']
+              chart.add_series :data => sheet["F2:F12"], :labels => sheet["A2:A12"], :title => sheet["F1"], :colors => ['483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48']
+            end
+
+          elsif(@categoryStack == "sbu")
+          sheet.add_row ["Category","M","Ethno", "UL", "Delhi", "Bangalore"]
+          sheet.add_row ["Proposal", @proposalCategory[:m] ,@proposalCategory[:ethno], @proposalCategory[:ul], @proposalCategory[:delhi], @proposalCategory[:bangalore]]
+          sheet.add_row ["Project Management",@pmCategory[:m],@pmCategory[:ethno], @pmCategory[:ul], @pmCategory[:delhi], @pmCategory[:bangalore]]
+          sheet.add_row ["RQ",@rqCategory[:m],@rqCategory[:ethno], @rqCategory[:ul], @rqCategory[:delhi], @rqCategory[:bangalore] ]
+          sheet.add_row ["Discussion Guide", @dgCategory[:m],@dgCategory[:ethno], @dgCategory[:ul], @dgCategory[:delhi], @dgCategory[:bangalore]]
+          sheet.add_row ["Fieldwork",@fieldworkCategory[:m],@fieldworkCategory[:ethno], @fieldworkCategory[:ul], @fieldworkCategory[:delhi], @fieldworkCategory[:bangalore]]
+          sheet.add_row ["Transcription and CA", @transcription_and_caCategory[:m],@transcription_and_caCategory[:ethno], @transcription_and_caCategory[:ul], @transcription_and_caCategory[:delhi], @transcription_and_caCategory[:bangalore]]
+          sheet.add_row ["Debrief",@debriefCategory[:m],@debriefCategory[:ethno], @debriefCategory[:ul], @debriefCategory[:delhi], @debriefCategory[:bangalore]]
+          sheet.add_row ["Final Presentation",@fpCategory[:m],@fpCategory[:ethno],@fpCategory[:ul], @fpCategory[:delhi], @fpCategory[:bangalore]]
+          sheet.add_row ["Travel",@travelCategory[:m],@travelCategory[:ethno], @travelCategory[:ul], @travelCategory[:delhi], @travelCategory[:bangalore]]
+          sheet.add_row ["Leadership",@leadershipCategory[:m],@leadershipCategory[:ethno], @leadershipCategory[:ul],@leadershipCategory[:delhi], @leadershipCategory[:bangalore]]
+          sheet.add_row ["Non Job Tasks",@non_jobCategory[:m],@non_jobCategory[:ethno], @non_jobCategory[:ul], @non_jobCategory[:delhi], @non_jobCategory[:bangalore]]
+          sheet.add_chart(Axlsx::Bar3DChart, :start_at => "G2", :end_at => "Z30", :title => "Designation stack by #{@designationStack}",:grouping=> :stacked) do |chart|
+            chart.add_series :data => sheet["B2:B12"], :labels => sheet["A2:A12"], :title => sheet["B1"], :colors => ['D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633']
+            chart.add_series :data => sheet["C2:C12"], :labels => sheet["A2:A12"], :title => sheet["C1"], :colors => ['358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795']
+            chart.add_series :data => sheet["D2:D12"], :labels => sheet["A2:A12"], :title => sheet["D1"], :colors => ['A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B']
+            chart.add_series :data => sheet["E2:E12"], :labels => sheet["A2:A12"], :title => sheet["E1"], :colors => ['F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420']
+            chart.add_series :data => sheet["F2:F12"], :labels => sheet["A2:A12"], :title => sheet["F1"], :colors => ['483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48']
+          end
+
+        elsif(@categoryStack == "designation")
+        sheet.add_row ["Category","Research Executive (RE)","Senior Research Executive (SRE)", "Associate Research Manager (AM)", "Research Manager (RM)", "Senior Research Manager (SRM)","Associate Vice President (AVP)","Vice President (VP)","Senior Vice President (SVP)","Executive Officer (CEO)","Chief Operating Officer (COO)","Director","Operations Executive (OE)","Senior Operations Executive (SOE)","Associate Manager Operations (AMO)","Manager Operations (MO)","Senior Manager Operations (SMO)"]
+        sheet.add_row ["Proposal",@proposalCategory[:re],@proposalCategory[:sre], @proposalCategory[:am], @proposalCategory[:rm], @proposalCategory[:srm],@proposalCategory[:avp],@proposalCategory[:vp],@proposalCategory[:svp],@proposalCategory[:ceo],@proposalCategory[:coo],@proposalCategory[:director],@proposalCategory[:oe],@proposalCategory[:soe],@proposalCategory[:amo],@proposalCategory[:mo],@proposalCategory[:smo]]
+        sheet.add_row ["Project Management",@pmCategory[:re],@pmCategory[:sre], @pmCategory[:am], @pmCategory[:rm], @pmCategory[:srm],@pmCategory[:avp],@pmCategory[:vp],@pmCategory[:svp],@pmCategory[:ceo],@pmCategory[:coo],@pmCategory[:director],@pmCategory[:oe],@pmCategory[:soe],@pmCategory[:amo],@pmCategory[:mo],@pmCategory[:smo]]
+        sheet.add_row ["RQ",@rqCategory[:re],@rqCategory[:sre], @rqCategory[:am], @rqCategory[:rm], @rqCategory[:srm],@rqCategory[:avp],@rqCategory[:vp],@rqCategory[:svp],@rqCategory[:ceo],@rqCategory[:coo],@rqCategory[:director],@rqCategory[:oe],@rqCategory[:soe],@rqCategory[:amo],@rqCategory[:mo],@rqCategory[:smo]]
+        sheet.add_row ["Discussion Guide",@dgCategory[:re],@dgCategory[:sre], @dgCategory[:am], @dgCategory[:rm],@dgCategory[:srm],@dgCategory[:avp],@dgCategory[:vp],@dgCategory[:svp],@dgCategory[:ceo],@dgCategory[:coo],@dgCategory[:director],@dgCategory[:oe],@dgCategory[:soe],@dgCategory[:amo],@dgCategory[:mo],@dgCategory[:smo]]
+        sheet.add_row ["Fieldwork",@fieldworkCategory[:re],@fieldworkCategory[:sre], @fieldworkCategory[:am], @fieldworkCategory[:rm], @fieldworkCategory[:srm],@fieldworkCategory[:avp],@fieldworkCategory[:vp],@fieldworkCategory[:svp],@fieldworkCategory[:ceo],@fieldworkCategory[:coo],@fieldworkCategory[:director],@fieldworkCategory[:oe],@fieldworkCategory[:soe],@fieldworkCategory[:amo],@fieldworkCategory[:mo],@fieldworkCategory[:smo]]
+        sheet.add_row ["Transcription and CA",@transcription_and_caCategory[:re],@transcription_and_caCategory[:sre], @transcription_and_caCategory[:am], @transcription_and_caCategory[:rm], @transcription_and_caCategory[:srm],@transcription_and_caCategory[:avp],@transcription_and_caCategory[:vp],@transcription_and_caCategory[:svp],@transcription_and_caCategory[:ceo],@transcription_and_caCategory[:coo],@transcription_and_caCategory[:director],@transcription_and_caCategory[:oe],@transcription_and_caCategory[:soe],@transcription_and_caCategory[:amo],@transcription_and_caCategory[:mo],@transcription_and_caCategory[:smo]]
+        sheet.add_row ["Debrief",@debriefCategory[:re],@debriefCategory[:sre], @debriefCategory[:am], @debriefCategory[:rm], @debriefCategory[:srm],@debriefCategory[:avp],@debriefCategory[:vp],@debriefCategory[:svp],@debriefCategory[:ceo],@debriefCategory[:coo],@debriefCategory[:director],@debriefCategory[:oe],@debriefCategory[:soe],@debriefCategory[:amo],@debriefCategory[:mo],@debriefCategory[:smo]]
+        sheet.add_row ["Final Presentation",@fpCategory[:re],@fpCategory[:sre], @fpCategory[:am], @fpCategory[:rm], @fpCategory[:srm],@fpCategory[:avp],@fpCategory[:vp],@fpCategory[:svp],@fpCategory[:ceo],@fpCategory[:coo],@fpCategory[:director],@fpCategory[:oe],@fpCategory[:soe],@fpCategory[:amo],@fpCategory[:mo],@fpCategory[:smo]]
+        sheet.add_row ["Travel",@travelCategory[:re],@travelCategory[:sre], @travelCategory[:am], @travelCategory[:rm], @travelCategory[:srm],@travelCategory[:avp],@travelCategory[:vp],@travelCategory[:svp],@travelCategory[:ceo],@travelCategory[:coo],@travelCategory[:director],@travelCategory[:oe],@travelCategory[:soe],@travelCategory[:amo],@travelCategory[:mo],@travelCategory[:smo]]
+        sheet.add_row ["Leadership",@leadershipCategory[:re],@leadershipCategory[:sre], @leadershipCategory[:am], @leadershipCategory[:rm], @leadershipCategory[:srm],@leadershipCategory[:avp],@leadershipCategory[:vp],@leadershipCategory[:svp],@leadershipCategory[:ceo],@leadershipCategory[:coo],@leadershipCategory[:director],@leadershipCategory[:oe],@leadershipCategory[:soe],@leadershipCategory[:amo],@leadershipCategory[:mo],@leadershipCategory[:smo]]
+        sheet.add_row ["Non Job Tasks",@non_jobCategory[:re],@non_jobCategory[:sre], @non_jobCategory[:am], @non_jobCategory[:rm], @non_jobCategory[:srm],@non_jobCategory[:avp],@non_jobCategory[:vp],@non_jobCategory[:svp],@non_jobCategory[:ceo],@non_jobCategory[:coo],@non_jobCategory[:director],@non_jobCategory[:oe],@non_jobCategory[:soe],@non_jobCategory[:amo],@non_jobCategory[:mo],@non_jobCategory[:smo]]
+
+        sheet.add_chart(Axlsx::Bar3DChart, :start_at => "D20", :end_at => "Z60", :title => "Designation stack by #{@categoryStack}",:grouping=> :stacked) do |chart|
+          chart.add_series :data => sheet["B2:B12"], :labels => sheet["A2:A12"], :title => sheet["B1"], :colors => ['D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633']
+          chart.add_series :data => sheet["C2:C12"], :labels => sheet["A2:A12"], :title => sheet["C1"], :colors => ['358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795']
+          chart.add_series :data => sheet["D2:D12"], :labels => sheet["A2:A12"], :title => sheet["D1"], :colors => ['A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B']
+          chart.add_series :data => sheet["E2:E12"], :labels => sheet["A2:A12"], :title => sheet["E1"], :colors => ['F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420']
+          chart.add_series :data => sheet["F2:F12"], :labels => sheet["A2:A12"], :title => sheet["F1"], :colors => ['483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48']
+          chart.add_series :data => sheet["G2:G12"], :labels => sheet["A2:A12"], :title => sheet["G1"], :colors => ['700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C']
+          chart.add_series :data => sheet["H2:H12"], :labels => sheet["A2:A12"], :title => sheet["H1"], :colors => ['63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E']
+          chart.add_series :data => sheet["I2:I12"], :labels => sheet["A2:A12"], :title => sheet["I1"], :colors => ['EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A']
+          chart.add_series :data => sheet["J2:J12"], :labels => sheet["A2:A12"], :title => sheet["J1"], :colors => ['FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856']
+          chart.add_series :data => sheet["K2:K12"], :labels => sheet["A2:A12"], :title => sheet["K1"], :colors =>['DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721']
+          chart.add_series :data => sheet["L2:L12"], :labels => sheet["A2:A12"], :title => sheet["L1"], :colors => ['68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203']
+          chart.add_series :data => sheet["M2:L12"], :labels => sheet["A2:A12"], :title => sheet["M1"], :colors => ['BFBB74','BFBB74','BFBB74','BFBB74','BFBB74','BFBB74','BFBB74','BFBB74','BFBB74','BFBB74','BFBB74']
+          chart.add_series :data => sheet["N2:N12"], :labels => sheet["A2:A12"], :title => sheet["N1"], :colors => ['0A2063','0A2063','0A2063','0A2063','0A2063','0A2063','0A2063','0A2063','0A2063','0A2063','0A2063']
+          chart.add_series :data => sheet["O2:O12"], :labels => sheet["A2:A12"], :title => sheet["O1"], :colors => ['BF9376','BF9376','BF9376','BF9376','BF9376','BF9376','BF9376','BF9376','BF9376','BF9376','BF9376']
+          chart.add_series :data => sheet["P2:P12"], :labels => sheet["A2:A12"], :title => sheet["P1"], :colors => ['ABD119','ABD119','ABD119','ABD119','ABD119','ABD119','ABD119','ABD119','ABD119','ABD119','ABD119']
+          chart.add_series :data => sheet["Q2:Q12"], :labels => sheet["A2:A12"], :title => sheet["Q1"], :colors => ['700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C']
+        end
+
+          elsif(@categoryStack == "task")
+          sheet.add_row ["Category","Meeting with Client","Proposal pre-work", "Proposal Writing", "Proposal Supervision", "Proposal Edits","Costing"]
+          sheet.add_row ["Proposal",@proposalCategory[:mwc],@proposalCategory[:ppw],@proposalCategory[:pw],@proposalCategory[:ps],@proposalCategory[:pe],@proposalCategory[:costing]]
+          sheet.add_row ["","","", "", "", "",""]
+          sheet.add_row ["Category","Scheduling & Project Planning","Billing", "Collections follow up", "Coordination with client", "Legal (NDA / Contracts)","Back Checks","Transcription Planning","Documentation and Data archiving"]
+          sheet.add_row ["Project Management",@pmCategory[:spp],@pmCategory[:billing],@pmCategory[:cfu],@pmCategory[:cwc],@pmCategory[:legal],@pmCategory[:back_check],@pmCategory[:tp],@pmCategory[:dda]]
+          sheet.add_row ["","","", "", "", "",""]
+          sheet.add_row ["Category","RQ Writing","RQ Supervision", "RQ Revisions", "RQ Briefing to Field", "Recruitment by Researchers"]
+          sheet.add_row ["RQ",@rqCategory[:writing],@rqCategory[:supervision],@rqCategory[:revisions],@rqCategory[:briefing],@rqCategory[:rbr]]
+          sheet.add_row ["","","", "", "", "",""]
+          sheet.add_row ["Category","DG Writing","DG Supervision", "DG Revisions", "Moderator briefing"]
+          sheet.add_row ["Discussion Guide",@dgCategory[:writing],@dgCategory[:supervision],@dgCategory[:revisions],@dgCategory[:moderator_briefing]]
+          sheet.add_row ["","","", "", "", "",""]
+          sheet.add_row ["Category","Pre-fieldwork prep","Attending Fieldwork", "Moderation", "Supervision","FES / TES Settlement","Budget Sheets","Post fieldwork Downloads","Field Notes"]
+          sheet.add_row ["Fieldwork",@fieldworkCategory[:pfp],@fieldworkCategory[:af],@fieldworkCategory[:moderation],@fieldworkCategory[:supervision],@fieldworkCategory[:fes],@fieldworkCategory[:bs],@fieldworkCategory[:pfd],@fieldworkCategory[:fn]]
+          sheet.add_row ["","","", "", "", "",""]
+          sheet.add_row ["Category","Transcription","CA"]
+          sheet.add_row ["Transcription and CA",@transcription_and_caCategory[:transcription],@transcription_and_caCategory[:ca]]
+          sheet.add_row ["","","", "", "", "",""]
+          sheet.add_row ["Category","Reading Transcripts","Brainstorming & Analysis", "Debrief Writing", "Debrief Supervision","Debrief Revisions","AV/ Production"]
+          sheet.add_row ["Debrief",@debriefCategory[:rt],@debriefCategory[:ba],@debriefCategory[:dw],@debriefCategory[:ds],@debriefCategory[:dr],@debriefCategory[:avprojuction]]
+          sheet.add_row ["","","", "", "", "",""]
+          sheet.add_row ["Category","Debrief Presentation","Workshop Conceptualisation", "Workshop Prep", "Workshop","Workshop Output report"]
+          sheet.add_row ["Final Presentation",@fpCategory[:dp],@fpCategory[:wc],@fpCategory[:wp],@fpCategory[:workshop],@fpCategory[:wor]]
+          sheet.add_row ["","","", "", "", "",""]
+          sheet.add_row ["Category","At Jedi School","Unplugged", "Imagineering", "Scheduling","Emails","Client meetings/discussions","Appraisals","Team time"]
+          sheet.add_row ["Non Job Tasks",@non_jobCategory[:at_jedi],@non_jobCategory[:unplugged],@non_jobCategory[:imagineering],@non_jobCategory[:scheduling],@non_jobCategory[:Emails],@non_jobCategory[:cm],@non_jobCategory[:appraisals],@non_jobCategory[:tt]]
+          sheet.add_row ["","","", "", "", "",""]
+          sheet.add_row ["Category","Visioning","Housekeeping", "Networking", "Firefighting","Recruitment"]
+          sheet.add_row ["Leadership",@leadershipCategory[:visioning],@leadershipCategory[:housekeeping],@leadershipCategory[:networking],@leadershipCategory[:firefighting],@leadershipCategory[:recruitment]]
+          sheet.add_row ["","","", "", "", "",""]
+          sheet.add_row ["Category","On the Road","Flight Mode"]
+          sheet.add_row ["Travel",@travelCategory[:road],@travelCategory[:flight]]
+          
+
+            end
+          elsif(@designationStack)
+          if(@designationStack == "feeling")
+          sheet.add_row ["Designation","Very Sad","Sad", "Neutral", "Happy", "Very Happy"]
+          sheet.add_row ["Research Executive (RE)", @reDesignation[:one] , @reDesignation[:two] , @reDesignation[:three], @reDesignation[:four] , @reDesignation[:five] ]
+          sheet.add_row ["Senior Research Executive (SRE)", @sreDesignation[:one] , @sreDesignation[:two] , @sreDesignation[:three], @sreDesignation[:four] , @sreDesignation[:five] ]
+          sheet.add_row ["Associate Research Manager (AM)", @amDesignation[:one] , @amDesignation[:two] , @amDesignation[:three], @amDesignation[:four] , @amDesignation[:five] ]
+          sheet.add_row ["Research Manager (RM)", @rmDesignation[:one] , @rmDesignation[:two] , @rmDesignation[:three], @rmDesignation[:four] , @rmDesignation[:five] ]
+          sheet.add_row ["Senior Research Manager (SRM)", @srmDesignation[:one] , @srmDesignation[:two] , @srmDesignation[:three], @srmDesignation[:four] , @srmDesignation[:five] ]
+          sheet.add_row ["Associate Vice President (AVP)", @avpDesignation[:one] , @avpDesignation[:two] , @avpDesignation[:three], @avpDesignation[:four] , @avpDesignation[:five] ]
+          sheet.add_row ["Vice President (VP)", @vpDesignation[:one] , @vpDesignation[:two] , @vpDesignation[:three], @vpDesignation[:four] , @vpDesignation[:five] ]
+          sheet.add_row ["Senior Vice President (SVP)", @svpDesignation[:one] , @svpDesignation[:two] , @svpDesignation[:three], @svpDesignation[:four] , @svpDesignation[:five] ]
+          sheet.add_row ["Executive Officer (CEO)", @ceoDesignation[:one] , @ceoDesignation[:two] , @ceoDesignation[:three], @ceoDesignation[:four] , @ceoDesignation[:five] ]
+          sheet.add_row ["Chief Operating Officer (COO)", @cooDesignation[:one] , @cooDesignation[:two] , @cooDesignation[:three], @cooDesignation[:four] , @cooDesignation[:five] ]
+          sheet.add_row ["Director", @directorDesignation[:one] , @directorDesignation[:two] , @directorDesignation[:three], @directorDesignation[:four] , @directorDesignation[:five] ]
+          sheet.add_row ["Operations Executive (OE)", @oeDesignation[:one] , @oeDesignation[:two] , @oeDesignation[:three], @oeDesignation[:four] , @oeDesignation[:five] ]
+          sheet.add_row ["Senior Operations Executive (SOE)", @soeDesignation[:one] , @soeDesignation[:two] , @soeDesignation[:three], @soeDesignation[:four] , @soeDesignation[:five] ]
+          sheet.add_row ["Associate Manager Operations (AMO)", @amoDesignation[:one] , @amoDesignation[:two] , @amoDesignation[:three], @amoDesignation[:four] , @amoDesignation[:five] ]
+          sheet.add_row ["Manager Operations (MO)", @moDesignation[:one] , @moDesignation[:two] , @moDesignation[:three], @moDesignation[:four] , @moDesignation[:five] ]
+          sheet.add_row ["Senior Manager Operations (SMO)", @smoDesignation[:one] , @smoDesignation[:two] , @smoDesignation[:three], @smoDesignation[:four] , @smoDesignation[:five] ]
+
+          sheet.add_chart(Axlsx::Bar3DChart, :start_at => "G2", :end_at => "Z30", :title => "Designation stack by #{@designationStack}",:grouping=> :stacked) do |chart|
+            chart.add_series :data => sheet["B2:B17"], :labels => sheet["A2:A17"], :title => sheet["B1"], :colors => ['D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633']
+            chart.add_series :data => sheet["C2:C17"], :labels => sheet["A2:A17"], :title => sheet["C1"], :colors => ['358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795']
+            chart.add_series :data => sheet["D2:D17"], :labels => sheet["A2:A17"], :title => sheet["D1"], :colors => ['A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B']
+            chart.add_series :data => sheet["E2:E17"], :labels => sheet["A2:A17"], :title => sheet["E1"], :colors => ['F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420']
+            chart.add_series :data => sheet["F2:F17"], :labels => sheet["A2:A17"], :title => sheet["F1"], :colors => ['483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48' ]
+          end
+
+        elsif(@designationStack == "category")
+        sheet.add_row ["Designation","Proposal","Project Management", "RQ", "Discussion Guide", "Fieldwork","Transcription and CA","Debrief","Final Presentation","Travel","Leadership","Non Job Tasks"]
+        sheet.add_row ["Research Executive (RE)", @reDesignation[:proposal] , @reDesignation[:project_management] , @reDesignation[:rq], @reDesignation[:discussion_guide] , @reDesignation[:fieldwork],@reDesignation[:transcription_and_ca],@reDesignation[:debrief],@reDesignation[:final_presentation],@reDesignation[:travel],@reDesignation[:non_job_tasks],@reDesignation[:leadership] ]
+        sheet.add_row ["Senior Research Executive (SRE)", @sreDesignation[:proposal] , @sreDesignation[:project_management] , @sreDesignation[:rq], @sreDesignation[:discussion_guide] , @sreDesignation[:fieldwork],@sreDesignation[:transcription_and_ca],@sreDesignation[:debrief],@sreDesignation[:final_presentation],@sreDesignation[:travel],@sreDesignation[:non_job_tasks],@sreDesignation[:leadership] ]
+        sheet.add_row ["Associate Research Manager (AM)", @amDesignation[:proposal] , @amDesignation[:project_management] , @amDesignation[:rq], @amDesignation[:discussion_guide] , @amDesignation[:fieldwork],@amDesignation[:transcription_and_ca],@amDesignation[:debrief],@amDesignation[:final_presentation],@amDesignation[:travel],@amDesignation[:non_job_tasks],@amDesignation[:leadership] ]
+        sheet.add_row ["Research Manager (RM)", @rmDesignation[:proposal] , @rmDesignation[:project_management] , @rmDesignation[:rq], @rmDesignation[:discussion_guide] , @rmDesignation[:fieldwork],@rmDesignation[:transcription_and_ca],@rmDesignation[:debrief],@rmDesignation[:final_presentation],@rmDesignation[:travel],@rmDesignation[:non_job_tasks],@rmDesignation[:leadership] ]
+        sheet.add_row ["Senior Research Manager (SRM)", @srmDesignation[:proposal] , @srmDesignation[:project_management] , @srmDesignation[:rq], @srmDesignation[:discussion_guide] , @srmDesignation[:fieldwork],@srmDesignation[:transcription_and_ca],@srmDesignation[:debrief],@srmDesignation[:final_presentation],@srmDesignation[:travel],@srmDesignation[:non_job_tasks],@srmDesignation[:leadership] ]
+        sheet.add_row ["Associate Vice President (AVP)", @avpDesignation[:proposal] , @avpDesignation[:project_management] , @avpDesignation[:rq], @avpDesignation[:discussion_guide] , @avpDesignation[:fieldwork],@avpDesignation[:transcription_and_ca],@avpDesignation[:debrief],@avpDesignation[:final_presentation],@avpDesignation[:travel],@avpDesignation[:non_job_tasks],@avpDesignation[:leadership] ]
+        sheet.add_row ["Vice President (VP)", @vpDesignation[:proposal] , @vpDesignation[:project_management] , @vpDesignation[:rq], @vpDesignation[:discussion_guide] , @vpDesignation[:fieldwork],@vpDesignation[:transcription_and_ca],@vpDesignation[:debrief],@vpDesignation[:final_presentation],@vpDesignation[:travel],@vpDesignation[:non_job_tasks],@vpDesignation[:leadership] ]
+        sheet.add_row ["Senior Vice President (SVP)", @svpDesignation[:proposal] , @svpDesignation[:project_management] , @svpDesignation[:rq], @svpDesignation[:discussion_guide] , @svpDesignation[:fieldwork],@svpDesignation[:transcription_and_ca],@svpDesignation[:debrief],@svpDesignation[:final_presentation],@svpDesignation[:travel],@svpDesignation[:non_job_tasks],@svpDesignation[:leadership] ]
+        sheet.add_row ["Executive Officer (CEO)", @ceoDesignation[:proposal] , @ceoDesignation[:project_management] , @ceoDesignation[:rq], @ceoDesignation[:discussion_guide] , @ceoDesignation[:fieldwork],@ceoDesignation[:transcription_and_ca],@ceoDesignation[:debrief],@ceoDesignation[:final_presentation],@ceoDesignation[:travel],@ceoDesignation[:non_job_tasks],@ceoDesignation[:leadership] ]
+        sheet.add_row ["Chief Operating Officer (COO)", @cooDesignation[:proposal] , @cooDesignation[:project_management] , @cooDesignation[:rq], @cooDesignation[:discussion_guide] , @cooDesignation[:fieldwork],@cooDesignation[:transcription_and_ca],@cooDesignation[:debrief],@cooDesignation[:final_presentation],@cooDesignation[:travel],@cooDesignation[:non_job_tasks],@cooDesignation[:leadership] ]
+        sheet.add_row ["Director", @directorDesignation[:proposal] , @directorDesignation[:project_management] , @directorDesignation[:rq], @directorDesignation[:discussion_guide] , @directorDesignation[:fieldwork],@directorDesignation[:transcription_and_ca],@directorDesignation[:debrief],@directorDesignation[:final_presentation],@directorDesignation[:travel],@directorDesignation[:non_job_tasks],@directorDesignation[:leadership] ]
+        sheet.add_row ["Operations Executive (OE)", @oeDesignation[:proposal] , @oeDesignation[:project_management] , @oeDesignation[:rq], @oeDesignation[:discussion_guide] , @oeDesignation[:fieldwork],@oeDesignation[:transcription_and_ca],@oeDesignation[:debrief],@oeDesignation[:final_presentation],@oeDesignation[:travel],@oeDesignation[:non_job_tasks],@oeDesignation[:leadership] ]
+        sheet.add_row ["Senior Operations Executive (SOE)", @soeDesignation[:proposal] , @soeDesignation[:project_management] , @soeDesignation[:rq], @soeDesignation[:discussion_guide] , @soeDesignation[:fieldwork],@soeDesignation[:transcription_and_ca],@soeDesignation[:debrief],@soeDesignation[:final_presentation],@soeDesignation[:travel],@soeDesignation[:non_job_tasks],@soeDesignation[:leadership] ]
+        sheet.add_row ["Associate Manager Operations (AMO)", @amoDesignation[:proposal] , @amoDesignation[:project_management] , @amoDesignation[:rq], @amoDesignation[:discussion_guide] , @amoDesignation[:fieldwork],@amoDesignation[:transcription_and_ca],@amoDesignation[:debrief],@amoDesignation[:final_presentation],@amoDesignation[:travel],@amoDesignation[:non_job_tasks],@amoDesignation[:leadership] ]
+        sheet.add_row ["Manager Operations (MO)", @moDesignation[:proposal] , @moDesignation[:project_management] , @moDesignation[:rq], @moDesignation[:discussion_guide] , @moDesignation[:fieldwork],@moDesignation[:transcription_and_ca],@moDesignation[:debrief],@moDesignation[:final_presentation],@moDesignation[:travel],@moDesignation[:non_job_tasks],@moDesignation[:leadership] ]
+        sheet.add_row ["Senior Manager Operations (SMO)", @smoDesignation[:proposal] , @smoDesignation[:project_management] , @smoDesignation[:rq], @smoDesignation[:discussion_guide] , @smoDesignation[:fieldwork],@smoDesignation[:transcription_and_ca],@smoDesignation[:debrief],@smoDesignation[:final_presentation],@smoDesignation[:travel],@smoDesignation[:non_job_tasks],@smoDesignation[:leadership] ]
+
+        sheet.add_chart(Axlsx::Bar3DChart, :start_at => "D25", :end_at => "Z65", :title => "Designation stack by #{@designationStack}",:grouping=> :stacked) do |chart|
+          chart.add_series :data => sheet["B2:B17"], :labels => sheet["A2:A17"], :title => sheet["B1"], :colors => ['D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633']
+          chart.add_series :data => sheet["C2:C17"], :labels => sheet["A2:A17"], :title => sheet["C1"], :colors => ['358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795']
+          chart.add_series :data => sheet["D2:D17"], :labels => sheet["A2:A17"], :title => sheet["D1"], :colors => ['A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B']
+          chart.add_series :data => sheet["E2:E17"], :labels => sheet["A2:A17"], :title => sheet["E1"], :colors => ['F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420']
+          chart.add_series :data => sheet["F2:F17"], :labels => sheet["A2:A17"], :title => sheet["F1"], :colors => ['483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48' ]
+          chart.add_series :data => sheet["G2:G17"], :labels => sheet["A2:A17"], :title => sheet["B1"], :colors => ['700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C','700D4C']
+          chart.add_series :data => sheet["H2:H17"], :labels => sheet["A2:A17"], :title => sheet["B1"], :colors => ['63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E','63AA5E']
+          chart.add_series :data => sheet["I2:I17"], :labels => sheet["A2:A17"], :title => sheet["B1"], :colors => ['EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A','EF432A']
+          chart.add_series :data => sheet["J2:J17"], :labels => sheet["A2:A17"], :title => sheet["B1"], :colors => ['FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856','FF2856']
+          chart.add_series :data => sheet["K2:K17"], :labels => sheet["A2:A17"], :title => sheet["B1"], :colors => ['DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721','DBF721']
+          chart.add_series :data => sheet["L2:L17"], :labels => sheet["A2:A17"], :title => sheet["B1"], :colors => ['68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203','68B203']
+        end
+
+        elsif(@designationStack == "sbu")
+        sheet.add_row ["Designation","M","Ethno", "UL", "Delhi", "Bangalore"]
+        sheet.add_row ["Research Executive (RE)", @reDesignation[:m] ,@reDesignation[:ethno] , @reDesignation[:ul] , @reDesignation[:delhi], @reDesignation[:bangalore]]
+        sheet.add_row ["Senior Research Executive (SRE)", @sreDesignation[:m] ,@sreDesignation[:ethno] , @sreDesignation[:ul] , @sreDesignation[:delhi], @sreDesignation[:bangalore]]
+        sheet.add_row ["Associate Research Manager (AM)", @amDesignation[:m] ,@amDesignation[:ethno] , @amDesignation[:ul] , @amDesignation[:delhi], @amDesignation[:bangalore]]
+        sheet.add_row ["Research Manager (RM)", @rmDesignation[:m] ,@rmDesignation[:ethno] , @rmDesignation[:ul] , @rmDesignation[:delhi], @rmDesignation[:bangalore]]
+        sheet.add_row ["Senior Research Manager (SRM)", @srmDesignation[:m] ,@srmDesignation[:ethno] , @srmDesignation[:ul] , @srmDesignation[:delhi], @srmDesignation[:bangalore]]
+        sheet.add_row ["Associate Vice President (AVP)", @avpDesignation[:m] ,@avpDesignation[:ethno] , @avpDesignation[:ul] , @avpDesignation[:delhi], @avpDesignation[:bangalore]]
+        sheet.add_row ["Vice President (VP)", @vpDesignation[:m] ,@vpDesignation[:ethno] , @vpDesignation[:ul] , @vpDesignation[:delhi], @vpDesignation[:bangalore]]
+        sheet.add_row ["Senior Vice President (SVP)", @svpDesignation[:m] ,@svpDesignation[:ethno] , @svpDesignation[:ul] , @svpDesignation[:delhi], @svpDesignation[:bangalore]]
+        sheet.add_row ["Executive Officer (CEO)", @ceoDesignation[:m] ,@ceoDesignation[:ethno] , @ceoDesignation[:ul] , @ceoDesignation[:delhi], @ceoDesignation[:bangalore]]
+        sheet.add_row ["Chief Operating Officer (COO)", @cooDesignation[:m] ,@cooDesignation[:ethno] , @cooDesignation[:ul] , @cooDesignation[:delhi], @cooDesignation[:bangalore]]
+        sheet.add_row ["Director", @directorDesignation[:m] ,@directorDesignation[:ethno] , @directorDesignation[:ul] , @directorDesignation[:delhi], @directorDesignation[:bangalore]]
+        sheet.add_row ["Operations Executive (OE)", @oeDesignation[:m] ,@oeDesignation[:ethno] , @oeDesignation[:ul] , @oeDesignation[:delhi], @oeDesignation[:bangalore]]
+        sheet.add_row ["Senior Operations Executive (SOE)", @soeDesignation[:m] ,@soeDesignation[:ethno] , @soeDesignation[:ul] , @soeDesignation[:delhi], @soeDesignation[:bangalore]]
+        sheet.add_row ["Associate Manager Operations (AMO)", @amoDesignation[:m] ,@amoDesignation[:ethno] , @amoDesignation[:ul] , @amoDesignation[:delhi], @amoDesignation[:bangalore]]
+        sheet.add_row ["Manager Operations (MO)", @moDesignation[:m] ,@moDesignation[:ethno] , @moDesignation[:ul] , @moDesignation[:delhi], @moDesignation[:bangalore]]
+        sheet.add_row ["Senior Manager Operations (SMO)", @smoDesignation[:m] ,@smoDesignation[:ethno] , @smoDesignation[:ul] , @smoDesignation[:delhi], @smoDesignation[:bangalore]]
+
+        sheet.add_chart(Axlsx::Bar3DChart, :start_at => "D25", :end_at => "Z65", :title => "Designation stack by #{@designationStack}",:grouping=> :stacked) do |chart|
+          chart.add_series :data => sheet["B2:B17"], :labels => sheet["A2:A17"], :title => sheet["B1"], :colors => ['D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633','D4B633']
+          chart.add_series :data => sheet["C2:C17"], :labels => sheet["A2:A17"], :title => sheet["C1"], :colors => ['358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795','358795']
+          chart.add_series :data => sheet["D2:D17"], :labels => sheet["A2:A17"], :title => sheet["D1"], :colors => ['A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B','A06D3B']
+          chart.add_series :data => sheet["E2:E17"], :labels => sheet["A2:A17"], :title => sheet["E1"], :colors => ['F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420','F7D420']
+          chart.add_series :data => sheet["F2:F17"], :labels => sheet["A2:A17"], :title => sheet["F1"], :colors => ['483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48','483D48' ]
+        end
+
+        end
+        elsif( @sbuStack )
+                    if(@sbuStack == "feeling")
+
+                                        sheet.add_row ["SBU","Very Sad","Sad", "Neutral", "Happy", "Very Happy"]
+                                        sheet.add_row ["M",@mSbu[:one] , @mSbu[:two], @mSbu[:three], @mSbu[:four], @mSbu[:five] ]
+                                        sheet.add_row ["Ethno",@ethnoSbu[:one] , @ethnoSbu[:two], @ethnoSbu[:three] , @ethnoSbu[:four], @ethnoSbu[:five]]
+                                        sheet.add_row ["UL", @ulSbu[:one] , @ulSbu[:two] , @ulSbu[:three] , @ulSbu[:four], @ulSbu[:five] ]
+                                        sheet.add_row ["Delhi", @delhiSbu[:one] , @delhiSbu[:two] ,@delhiSbu[:three], @delhiSbu[:four], @delhiSbu[:five] ]
+                                        sheet.add_row ["Bangalore", @bangaloreSbu[:one] , @bangaloreSbu[:two] , @bangaloreSbu[:three], @bangaloreSbu[:four], @bangaloreSbu[:five]]
+
+                                        sheet.add_chart(Axlsx::Bar3DChart, :start_at => "G2", :end_at => "Z15", :title => "SBU stack by #{@sbuStack}",:grouping=> :stacked) do |chart|
+                                          chart.add_series :data => sheet["B2:B6"], :labels => sheet["A2:A6"], :title => sheet["B1"], :colors => ['5cf2ad','5cf2ad','5cf2ad','5cf2ad','5cf2ad']
+                                          chart.add_series :data => sheet["C2:C6"], :labels => sheet["A2:A6"], :title => sheet["C1"], :colors => ['fa3e77','fa3e77','fa3e77','fa3e77','fa3e77']
+                                          chart.add_series :data => sheet["D2:D6"], :labels => sheet["A2:A6"], :title => sheet["D1"], :colors => ['fdb42a','fdb42a','fdb42a','fdb42a','fdb42a']
+                                          chart.add_series :data => sheet["E2:E6"], :labels => sheet["A2:A6"], :title => sheet["E1"], :colors => ['a83526','a83526','a83526','a83526','a83526']
+                                          chart.add_series :data => sheet["F2:F6"], :labels => sheet["A2:A6"], :title => sheet["F1"], :colors => ['0000ff','0000ff','0000ff','0000ff','0000ff' ]
+                                        end
+                        elsif(@sbuStack == "category")
+                                    sheet.add_row ["SBU","Proposal","Project Management", "RQ", "Discussion Guide", "Fieldwork","Transcription and CA","Debrief","Final Presentation","Travel", "Leadership","Non Job Tasks"]
+                                    sheet.add_row ["M",@mSbu[:proposal] ,@mSbu[:project_management] , @mSbu[:rq] , @mSbu[:discussion_guide] , @mSbu[:fieldwork], @mSbu[:transcription_and_ca], @mSbu[:debrief],@mSbu[:final_presentation],@mSbu[:travel], @mSbu[:leadership], @mSbu[:non_job_tasks] ]
+                                    sheet.add_row ["Ethno",@ethnoSbu[:proposal] ,@ethnoSbu[:project_management] , @ethnoSbu[:rq] , @ethnoSbu[:discussion_guide] ,@ethnoSbu[:fieldwork], @ethnoSbu[:transcription_and_ca], @ethnoSbu[:debrief],@ethnoSbu[:final_presentation],@ethnoSbu[:travel], @ethnoSbu[:leadership], @ethnoSbu[:non_job_tasks] ]
+                                    sheet.add_row ["UL",@ulSbu[:proposal] ,@ulSbu[:project_management] , @ulSbu[:rq] , @ulSbu[:discussion_guide] , @ulSbu[:fieldwork], @ulSbu[:transcription_and_ca], @ulSbu[:debrief],@ulSbu[:final_presentation],@ulSbu[:travel], @ulSbu[:leadership], @ulSbu[:non_job_tasks] ]
+                                    sheet.add_row ["Delhi",@delhiSbu[:proposal] ,@delhiSbu[:project_management] , @delhiSbu[:rq] , @delhiSbu[:discussion_guide] , @delhiSbu[:fieldwork],@delhiSbu[:transcription_and_ca], @delhiSbu[:debrief],@delhiSbu[:final_presentation],@delhiSbu[:travel], @delhiSbu[:leadership], @delhiSbu[:non_job_tasks] ]
+                                    sheet.add_row ["Bangalore",@bangaloreSbu[:proposal] ,@bangaloreSbu[:project_management] , @bangaloreSbu[:rq] , @bangaloreSbu[:discussion_guide] , @bangaloreSbu[:fieldwork], @bangaloreSbu[:transcription_and_ca], @bangaloreSbu[:debrief],@bangaloreSbu[:final_presentation],@bangaloreSbu[:travel], @bangaloreSbu[:leadership], @bangaloreSbu[:non_job_tasks] ]
+
+                                    sheet.add_chart(Axlsx::Bar3DChart, :start_at => "N2", :end_at => "AF30", :title => "SBU stack by #{@sbuStack}",:grouping=> :stacked) do |chart|
+                                      chart.add_series :data => sheet["B2:B6"], :labels => sheet["A2:A6"], :title => sheet["B1"], :colors => ['5cf2ad','5cf2ad','5cf2ad','5cf2ad','5cf2ad']
+                                      chart.add_series :data => sheet["C2:C6"], :labels => sheet["A2:A6"], :title => sheet["C1"], :colors => ['fa3e77','fa3e77','fa3e77','fa3e77','fa3e77']
+                                      chart.add_series :data => sheet["D2:D6"], :labels => sheet["A2:A6"], :title => sheet["D1"], :colors => ['fdb42a','fdb42a','fdb42a','fdb42a','fdb42a']
+                                      chart.add_series :data => sheet["E2:E6"], :labels => sheet["A2:A6"], :title => sheet["E1"], :colors => ['a83526','a83526','a83526','a83526','a83526']
+                                      chart.add_series :data => sheet["F2:F6"], :labels => sheet["A2:A6"], :title => sheet["F1"], :colors => ['0000ff','0000ff','0000ff','0000ff','0000ff' ]
+                                      chart.add_series :data => sheet["G2:G6"], :labels => sheet["A2:A6"], :title => sheet["G1"], :colors => ['68B203','68B203','68B203','68B203','68B203' ]
+                                      chart.add_series :data => sheet["H2:H6"], :labels => sheet["A2:A6"], :title => sheet["H1"], :colors => ['DBF721','DBF721','DBF721','DBF721','DBF721' ]
+                                      chart.add_series :data => sheet["I2:I6"], :labels => sheet["A2:A6"], :title => sheet["I1"], :colors => ['FF2856','FF2856','FF2856','FF2856','FF2856' ]
+                                      chart.add_series :data => sheet["J2:J6"], :labels => sheet["A2:A6"], :title => sheet["J1"], :colors => ['EF432A','EF432A','EF432A','EF432A','EF432A' ]
+                                      chart.add_series :data => sheet["K2:K6"], :labels => sheet["A2:A6"], :title => sheet["K1"], :colors => ['63AA5E','63AA5E','63AA5E','63AA5E','63AA5E' ]
+                                      chart.add_series :data => sheet["L2:L6"], :labels => sheet["A2:A6"], :title => sheet["L1"], :colors => ['700D4C','700D4C','700D4C','700D4C','700D4C' ]
+                                    end
+                    elsif(@sbuStack == "designation")
+                                sheet.add_row ["SBU","Research Executive (RE)","Senior Research Executive (SRE)","Associate Research Manager (AM)", "Research Manager (RM)", "Senior Research Manager (SRM)", "Associate Vice President (AVP)","Vice President (VP)","Senior Vice President (SVP)","Executive Officer (CEO)","Chief Operating Officer (COO)", "Director","Operations Executive (OE)","Senior Operations Executive (SOE)","Associate Manager Operations (AMO)","Manager Operations (MO)","Senior Manager Operations (SMO)"]
+                                sheet.add_row ["M", @mSbu[:re] , @mSbu[:sre] , @mSbu[:am] , @mSbu[:rm] ,  @mSbu[:srm] , @mSbu[:avp] , @mSbu[:vp] , @mSbu[:svp] , @mSbu[:ceo] ,@mSbu[:coo], @mSbu[:director],@mSbu[:oe],@mSbu[:soe],@mSbu[:amo],@mSbu[:mo],@mSbu[:smo] ]
+                                sheet.add_row ["Ethno", @ethnoSbu[:re] , @ethnoSbu[:sre] , @ethnoSbu[:am] , @ethnoSbu[:rm] ,  @ethnoSbu[:srm] , @ethnoSbu[:avp] , @ethnoSbu[:vp] , @ethnoSbu[:svp] , @ethnoSbu[:ceo] , @ethnoSbu[:coo], @ethnoSbu[:director], @ethnoSbu[:oe], @ethnoSbu[:soe], @ethnoSbu[:amo],@ethnoSbu[:mo], @ethnoSbu[:smo] ]
+                                sheet.add_row ["UL", @ulSbu[:re] , @ulSbu[:sre] , @ulSbu[:am] , @ulSbu[:rm] ,  @ulSbu[:srm] , @ulSbu[:avp] , @ulSbu[:vp] , @ulSbu[:svp] , @ulSbu[:ceo] , @ulSbu[:coo], @ulSbu[:director] , @ulSbu[:oe], @ulSbu[:soe] , @ulSbu[:amo] , @ulSbu[:mo] , @ulSbu[:smo] ]
+                                sheet.add_row ["Delhi", @delhiSbu[:re] , @delhiSbu[:sre] ,@delhiSbu[:am] , @delhiSbu[:rm] ,  @delhiSbu[:srm] , @delhiSbu[:avp] , @delhiSbu[:vp] , @delhiSbu[:svp] , @delhiSbu[:ceo] , @delhiSbu[:coo], @delhiSbu[:director] , @delhiSbu[:oe] , @delhiSbu[:soe] , @delhiSbu[:amo] , @delhiSbu[:mo] , @delhiSbu[:smo] ]
+                                sheet.add_row ["Bangalore", @bangaloreSbu[:re] , @bangaloreSbu[:sre] , @bangaloreSbu[:am] , @bangaloreSbu[:rm] ,  @bangaloreSbu[:srm] , @bangaloreSbu[:avp] , @bangaloreSbu[:vp] , @bangaloreSbu[:svp] , @bangaloreSbu[:ceo] , @bangaloreSbu[:coo], @bangaloreSbu[:director] , @bangaloreSbu[:oe] , @bangaloreSbu[:soe] , @bangaloreSbu[:amo] , @bangaloreSbu[:mo] , @bangaloreSbu[:smo] ]
+
+                                sheet.add_chart(Axlsx::Bar3DChart, :start_at => "D10", :end_at => "Z50", :title => "SBU stack by #{@sbuStack}",:grouping=> :stacked) do |chart|
+                                  chart.add_series :data => sheet["B2:B6"], :labels => sheet["A2:A6"], :title => sheet["B1"], :colors => ['D4B633','D4B633','D4B633','D4B633','D4B633']
+                                  chart.add_series :data => sheet["C2:C6"], :labels => sheet["A2:A6"], :title => sheet["C1"], :colors => ['358795','358795','358795','358795','358795']
+                                  chart.add_series :data => sheet["D2:D6"], :labels => sheet["A2:A6"], :title => sheet["D1"], :colors => ['A06D3B','A06D3B','A06D3B','A06D3B','A06D3B']
+                                  chart.add_series :data => sheet["E2:E6"], :labels => sheet["A2:A6"], :title => sheet["E1"], :colors => ['F7D420','F7D420','F7D420','F7D420','F7D420']
+                                  chart.add_series :data => sheet["F2:F6"], :labels => sheet["A2:A6"], :title => sheet["F1"], :colors => ['483D48','483D48','483D48','483D48','483D48' ]
+                                  chart.add_series :data => sheet["G2:G6"], :labels => sheet["A2:A6"], :title => sheet["G1"], :colors => ['68E63F','68E63F','68E63F','68E63F','68E63F' ]
+                                  chart.add_series :data => sheet["H2:H6"], :labels => sheet["A2:A6"], :title => sheet["H1"], :colors => ['C03482','C03482','C03482','C03482','C03482' ]
+                                  chart.add_series :data => sheet["I2:I6"], :labels => sheet["A2:A6"], :title => sheet["I1"], :colors => ['4E776F','4E776F','4E776F','4E776F','4E776F' ]
+                                  chart.add_series :data => sheet["J2:J6"], :labels => sheet["A2:A6"], :title => sheet["J1"], :colors => ['6B270D','6B270D','6B270D','6B270D','6B270D' ]
+                                  chart.add_series :data => sheet["K2:K6"], :labels => sheet["A2:A6"], :title => sheet["K1"], :colors => ['CCC3DB','CCC3DB','CCC3DB','CCC3DB','CCC3DB' ]
+                                  chart.add_series :data => sheet["L2:L6"], :labels => sheet["A2:A6"], :title => sheet["L1"], :colors => ['920F26','920F26','920F26','920F26','920F26' ]
+
+                                  chart.add_series :data => sheet["M2:M6"], :labels => sheet["A2:A6"], :title => sheet["M1"], :colors => ['BFBB74','BFBB74','BFBB74','BFBB74','BFBB74' ]
+                                  chart.add_series :data => sheet["N2:N6"], :labels => sheet["A2:A6"], :title => sheet["N1"], :colors => ['0A2063','0A2063','0A2063','0A2063','0A2063' ]
+                                  chart.add_series :data => sheet["O2:O6"], :labels => sheet["A2:A6"], :title => sheet["O1"], :colors => ['BF9376','BF9376','BF9376','BF9376','BF9376' ]
+                                  chart.add_series :data => sheet["P2:P6"], :labels => sheet["A2:A6"], :title => sheet["P1"], :colors => ['ABD119','ABD119','ABD119','ABD119','ABD119' ]
+                                  chart.add_series :data => sheet["Q2:Q6"], :labels => sheet["A2:A6"], :title => sheet["Q1"], :colors => ['700D4C','700D4C','700D4C','700D4C','700D4C' ]
+                                end
+
+                        end
+          end
+
+          sheet.add_row ["", "" ]
+          sheet.add_row ["", "" ]
+          sheet.add_row ["", "" ]
+          sheet.add_row ["", "" ]
+          sheet.add_row ["", "" ]
+          if(@timesheets)
+          sheet.add_row ["Project","Task","Date","Time Spent","Feeling","User"]
+          @timesheets.each do |timesheet|
+          sheet.add_row [Project.find(timesheet.project_id).projectname, Task.find(timesheet.task_id).taskname,timesheet.Tdate,timesheet.timespent ,timesheet.feeling,User.find(timesheet.user_id).username]
+          end
+          end
+
+end

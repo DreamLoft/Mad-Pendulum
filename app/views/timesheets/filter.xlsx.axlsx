@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Timesheets") do |sheet|
+sheet.add_row ["Project","Task","Date","Time Spent","Feeling","User","Total Task Time"]
+  @timesheets.each do |timesheet|
+    sheet.add_row [Project.find(timesheet.project_id).projectname, Task.find(timesheet.task_id).taskname,timesheet.Tdate,timesheet.timespent ,timesheet.feeling,User.find(timesheet.user_id).username,timesheet.totaltasktime]
+  end
+end

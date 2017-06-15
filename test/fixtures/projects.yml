@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jobid: MyString
+  projectname: MyString
+  clientname: MyString
+  startdate: 2016-07-26
+  projectstatus: MyString
+  city: MyString
+  lead: MyString
+
+two:
+  jobid: MyString
+  projectname: MyString
+  clientname: MyString
+  startdate: 2016-07-26
+  projectstatus: MyString
+  city: MyString
+  lead: MyString

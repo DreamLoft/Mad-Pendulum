@@ -1,0 +1,58 @@
+<h1>Timesheets</h1>
+<div class="pull-right">
+<%= link_to 'New Timesheet', new_timesheet_path , class: 'btn btn-primary'%>
+<%= link_to 'Export to Excel', filter_timesheets_path(request.parameters.merge({format: "xlsx"})) , class: 'btn btn-primary'%>
+</div>
+<br/>
+<hr/>
+<ul class="list-group">
+<% if(current_user.is_project_lead== true || current_user.is_project_manager == true) %>
+<% if(!@timesheets.empty?) %>
+  <% @timesheets= @timesheets.select{|a| Project.find(a.project_id).project_manager== current_user.id || Project.find(a.project_id).project_lead == current_user.id || a.user_id == current_user.id }  %>
+<% end %>
+<% end %>
+<% @timesheets.each do |timesheet| %>
+<li class="list-group-item">
+<table class = "table table-hover ">
+  <tr>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>  <%= Project.find(timesheet.project_id).projectname %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>  <%= Task.find(timesheet.task_id).taskname %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  <%=User.find(timesheet.user_id).username %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>  <%= timesheet.Tdate  %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  <%= timesheet.timespent %> Min.
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>  <%= ((timesheet.timespent/60) * User.find(timesheet.user_id).weight).round(2) %> Points
+    </td>
+    <td style="width: 5%;">
+      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>  <%= timesheet.feeling %>
+    </td>
+    <td style="width: 15%;"><%= link_to 'Details', timesheet_path(timesheet) %></td>
+  </tr>
+</table>
+</li>
+<% end %>
+
+<li class="list-group-item list-group-item-warning">
+  <% if (!@timesheets.empty?) %>
+<td style="width: 15%;">Average Timesheet :- </td>
+<td style="width: 15%;"><%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x})/60).to_i/@timesheets.count %>:<%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x}).to_i%60)/@timesheets.count %> Hours || </td>
+<td style="width: 15%;"> Total Time Spent :- </td>
+<td style="width: 15%;"><%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x})/60).to_i %>:<%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x}).to_i%60) %> Hours || </td>
+<td style="width: 15%;">Average Feeling :- </td>
+<td style="width: 5%;"><%= @timesheets.pluck(:feeling).inject{|sum,x| sum +x }.to_i/@timesheets.count %>  </td>
+<td style="width: 15%;"></td>
+<td style="width: 15%;"></td>
+<% end %>
+</li>
+
+</ul>

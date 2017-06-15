@@ -1,0 +1,24 @@
+<h1>Listing Project User Association</h1>
+
+<br/>
+<table class = "table table-striped">
+<br/>
+  <tr>
+    <th>Projection ID</th>
+    <th>Project Name</th>
+    <th>User Name</th>
+    <th>Join Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @projections.each do |projection| %>
+    <tr>
+      <td><%= projection.id %></td>
+      <td><%=User.find(projection.user_id).username %></td>
+      <td><%= Project.find(projection.project_id).projectname %></td>
+      <td><%= projection.joindate %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,43 @@
+<style>
+        body{
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        .panel{
+            width: 500px;
+            margin-left: 30%;
+            margin-right: 30%;
+            margin-top: 10%;
+        }
+        .btn{
+            width: 100%;
+        }
+    </style>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <%= image_tag("qtm.png", :alt => "rss feed" ,class: 'center-block') %>
+  </div>
+  <div class="panel-body field form-group ">
+    <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field form-group">
+      <%= f.email_field :email, placeholder: "Enter Email", autofocus: true, class: 'form-control', hide_label: true  %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password,placeholder: "Enter Password", autocomplete: "off", class: 'form-control', hide_label: true  %>
+    </div>
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me%>
+      </div>
+    <% end -%>
+    <hr>
+    <div>
+      <%= f.submit "Log in", class: 'btn btn-primary btn-md center-block' %>
+    </div>
+
+    <% end %>
+  </div>
+  <div class="panel-footer text-center">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

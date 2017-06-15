@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @admin.username %></h1>
+<%
+def interval_from_last_timesheet(user)
+  @user_timesheets=  Timesheet.where(:user_id => user.id ).order('created_at DESC').limit(1)
+  @latest_timesheet = @user_timesheets.first
+  @previous_day= (Date.today - Date.parse(@latest_timesheet.Tdate.to_s)).to_i if @latest_timesheet
+business_days =0
+  if @latest_timesheet
+    dt= Date.parse(@latest_timesheet.Tdate.to_s)
+    while Date.today > dt
+   business_days = business_days + 1 unless dt.saturday? or dt.sunday?
+   dt = dt + 1.day
+  end
+  end
+  business_days
+end
+%>
+
+    <h4> Here is the list of people who have not submitted their timesheet today(<%= Date.today %>) :- </h4>
+    <% @leftuser.each do |user| %>
+    <ul>
+    <li>
+      <% if interval_from_last_timesheet(user) %>
+      <%= user.username %> (<%= user.designation %>) : <%= interval_from_last_timesheet(user) %> Days
+      <% else %>
+            <%= user.username %> (<%= user.designation %>) : Never Filled a Timesheet
+      <% end %>
+
+    </li>
+  </ul>
+    <% end %>
+  </body>
+</html>

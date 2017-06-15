@@ -1,0 +1,92 @@
+<h1>Add New Time Sheet</h1>
+
+<% if (@projects.blank?) %>
+<div> No Project to Submit Timesheet for. Please Create and Join a Project First </div>
+<% else %>
+  <%= bootstrap_form_for :timesheet , url: timesheets_path do |f| %>
+
+  <div class="form-group">
+        <% if(Timesheet.where(["user_id = ?", current_user.id]).empty?) %>
+         <%= f.text_field :id ,value:  (current_user.id*1000000)+1 ,type: 'hidden',hide_label: true %>
+        <% else %>
+    <%= f.text_field :id ,value: (Timesheet.where(["user_id = ?", current_user.id]).last.id )+1 ,type: 'hidden' , hide_label: true%>
+    <% end %>
+  </div>
+
+  <div class="row">
+         <div class="col-lg-6">
+                <div class="form-group">
+                  <%= f.select :project_id,  label: "Select Project" do %>
+                    <% @projects.each do |project| -%>
+                      <%= content_tag(:option, Project.find(project.project_id).projectname, value: project.project_id) %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+      <div class="col-lg-6">
+    <% if (@tasks.blank?) %>
+    <div> No Task to Submit Timesheet for. Please Create and Join a Project First </div>
+    <% else %>
+
+    <div class="form-group">
+      <%= f.select :task_id , class: 'form-control' do %>
+        <% @tasks.each do |task| -%>
+          <%= content_tag(:option, task.taskname, value: task.id) %>
+        <% end %>
+    <% end %>
+      </div>
+      <% end %>
+    </div>
+
+
+    <div class="row">
+           <div class="col-lg-6">
+                <div class="form-group">
+                  <%= f.date_field :Tdate ,value: Date.today , class: 'form-control',  label: "Date",:required => true, :readonly => true %>
+                </div>
+              </div>
+<div class="col-lg-6">
+    <div class="form-group">
+      <%= f.text_field :timespent ,type:"number" , class: 'form-control',  label: "Time Spent(in Minutes)" ,:required => true %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.select :feeling,  label: "Feeling" do %>
+      <option value= 1>Very Sad</option>
+      <option value= 2>Sad</option>
+      <option value= 3>Neutral</option>
+      <option value= 4>Happy</option>
+      <option value= 5>Very Happy</option>
+      <% end %>
+
+
+      </div>
+  </div>
+  <div class="col-lg-6">
+  <div class="form-group">
+    <%= f.text_field :user_id ,value: current_user.id ,type: 'hidden' , class: 'form-control',hide_label: true %>
+
+          <p>
+<%= f.submit "Submit Timesheet", class: 'btn btn-primary pull-right' %>
+          </p>
+
+  </div>
+</div>
+  </div>
+
+
+
+       </div>
+
+
+
+
+
+
+
+
+  <% end %>
+<% end %>

@@ -1,0 +1,48 @@
+<h3>Progress Report </h3>
+<ol class="breadcrumb">
+  <li><a href="<%= project_path(Project.find(@timesheet.project_id)) %>"><%= Project.find(@timesheet.project_id).projectname %></a></li>
+  <li><a href="<%= tasks_path %>"><%= Task.find(@timesheet.task_id).taskname %></a></li>
+  <li><%=User.find(@timesheet.user_id).username %></a></li>
+</ol>
+<ul class="list-group">
+<% @timesheets.each do |timesheet| %>
+<li class="list-group-item">
+<table class = "table table-hover ">
+  <tr>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>  <%= Project.find(timesheet.project_id).projectname %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>  <%= Task.find(timesheet.task_id).taskname %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  <%=User.find(timesheet.user_id).username %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>  <%= timesheet.Tdate  %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  <%= timesheet.timespent %> Min.
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>  <%= ((timesheet.timespent/60) * User.find(timesheet.user_id).weight).round(2) %> Points
+    </td>
+    <td style="width: 5%;">
+      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>  <%= timesheet.feeling %>
+    </td>
+  </tr>
+</table>
+</li>
+<% end %>
+
+<li class="list-group-item list-group-item-warning">
+<td style="width: 15%;">Average Timesheet :- </td>
+<td style="width: 15%;"><%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x})/60).to_i/@timesheets.count %>:<%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x}).to_i%60)/@timesheets.count %> Hours || </td>
+<td style="width: 15%;"> Total Time Spent :- </td>
+<td style="width: 15%;"><%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x})/60).to_i %>:<%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x}).to_i%60) %> Hours || </td>
+<td style="width: 15%;">Average Feeling :- </td>
+<td style="width: 5%;"><%= @timesheets.pluck(:feeling).inject{|sum,x| sum +x }.to_i/@timesheets.count %>  </td>
+<td style="width: 15%;"></td>
+<td style="width: 15%;"></td>
+</li>
+</ul>

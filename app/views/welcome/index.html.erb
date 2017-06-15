@@ -1,0 +1,282 @@
+
+<% content_for :top_content do %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<style>
+                    body{
+                    }
+                    .d3-tip {
+                              line-height: 1;
+                              font-weight: bold;
+                              padding: 12px;
+                              background: rgba(0, 0, 0, 0.8);
+                              color: #fff;
+                              border-radius: 2px;
+                    }
+                    /* Creates a small triangle extender for the tooltip */
+                    .d3-tip:after {
+                              box-sizing: border-box;
+                              display: inline;
+                              font-size: 10px;
+                              width: 100%;
+                              line-height: 1;
+                              color: rgba(0, 0, 0, 0.8);
+                              content: "\25BC";
+                              position: absolute;
+                              text-align: center;
+                    }
+                    /* Style northward tooltips differently */
+                    .d3-tip.n:after {
+                              margin: -1px 0 0 0;
+                              top: 100%;
+                              left: 0;
+                    }
+                    button{
+                      margin-left: 5px
+                    }
+  </style>
+          <div class="row">
+                    <div class="col-lg-3">
+                              <div class="container" style="width: 100%">
+                                        <div class="panel-group" id="filteraccordion">
+                                                  <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                      <h4 class="panel-title">
+                                                                                <a data-toggle="collapse" data-parent="#filteraccordion" id="projectsAxis" href="#projectsFilter">Projects X-Axis</a>
+                                                                      </h4>
+                                                            </div>
+                                                            <div id="projectsFilter" class="panel-collapse collapse in">
+
+                                                                      <div class="panel-body">
+                                                                                  <button id="selectedProjects" class="btn btn-primary">Filter Projects</button>
+
+
+
+                                                                              <form method="get">
+                                                                                <div style="height: 250px; overflow-y: scroll;">
+                                                                                          <ul class="list-group" id="pselect" name="pselect">
+                                                                                          </ul>
+                                                                                </div>
+                                                                                <hr>
+                                                                                <select id="pcategory" name="pcategory" class="form-control">
+                                                                                          <option value=0>All Category</option>
+                                                                                          <option value="Proposal">Proposal</option>
+                                                                                          <option value="Project Management">Project Management</option>
+                                                                                          <option value="RQ">RQ</option>
+                                                                                          <option value="Discussion Guide">Discussion Guide</option>
+                                                                                          <option value="Fieldwork">Fieldwork</option>
+                                                                                          <option value="Transcription and CA">Transcription and CA</option>
+                                                                                          <option value="Debrief">Debrief</option>
+                                                                                          <option value="Final Presentation">Final Presentation</option>
+                                                                                          <option value="Non Job Tasks">Non Job Tasks</option>
+                                                                                </select><br>
+                                                                                <select id="ptask" name= "ptask" class="form-control">
+                                                                                          <option value="0">All Tasks</option>
+                                                                                </select><br>
+                                                                                <select id="pdesignation" name="pdesignation" class="form-control">
+                                                                                          <option value="0">All Designation</option>
+                                                                                          <option value="Research Executive (RE)">Research Executive (RE)</option>
+                                                                                          <option value="Senior Research Executive (SRE)">Senior Research Executive (SRE)</option>
+                                                                                          <option value="Associate Research Manager (AM)">Associate Research Manager (AM)</option>
+                                                                                          <option value="Research Manager (RM)">Research Manager (RM)</option>
+                                                                                          <option value="Senior Research Manager (SRM)">Senior Research Manager (SRM)</option>
+                                                                                          <option value="Associate Vice President (AVP)">Associate Vice President (AVP)</option>
+                                                                                          <option value="Vice President (VP)">Vice President (VP)</option>
+                                                                                          <option value="Senior Vice President (SVP)">Senior Vice President (SVP)</option>
+                                                                                          <option value="Executive Officer (CEO)">Executive Officer (CEO)</option>
+                                                                                          <option value="Chief Operating Officer (COO)">Chief Operating Officer (COO)</option>
+                                                                                          <option value="Director">Director</option>
+                                                                                          <option value="Operations Executive (OE)">Operations Executive (OE)</option>
+                                                                                          <option value="Senior Operations Executive (SOE)">Senior Operations Executive (SOE)</option>
+                                                                                          <option value="Associate Manager Operations (AMO)">Associate Manager Operations (AMO)</option>
+                                                                                          <option value="Manager Operations (MO)">Manager Operations (MO)</option>
+                                                                                          <option value="Senior Manager Operations (SMO)">Senior Manager Operations (SMO)</option>
+                                                                                </select><br>
+                                                                                <button type="submit" class="btn btn-primary pull-right" name="proFilter" formaction= "/welcome/index.xlsx">Generate Excel</button>
+
+                                                                                <button class="btn btn-primary pull-right" id="goproject">GO</button><br>
+                                                                                <hr>
+
+                                                                                <select id="projectStackOptions" name="projectStackOptions" class="form-control">
+                                                                                          <option value="0" >No Stack</option>
+                                                                                          <option value="category">Stack by Category</option>
+                                                                                          <option value="designation">Stack by Designations</option>
+                                                                                          <option value="feeling">Stack by Feeling</option>
+                                                                                </select><br>
+                                                                                <button type="submit" class="btn btn-primary pull-right" name="projectStackExport" formaction="/welcome/pStack.xlsx" >Generate Excel</button>
+                                                                                </form>
+                                                                                <button id="projectStack" class="btn btn-primary pull-right">Stack it</button>
+
+                                                                      </div>
+                                                            </div>
+                                                  </div>
+                                                  <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                      <h4 class="panel-title">
+                                                                                <a data-toggle="collapse" data-parent="#filteraccordion" id="categoryAxis" href="#categotyFilter">Category X-Axis</a>
+                                                                      </h4>
+                                                            </div>
+                                                            <div id="categotyFilter" class="panel-collapse collapse">
+                                                                      <div class="panel-body">
+                                                                        <form  action="/welcome/index.xlsx" method="get">
+                                                                                <select id="project" name="project" class="form-control">
+                                                                                          <option value="0">All Projects</option>
+                                                                                </select><br>
+                                                                                <select id="designation" name="designation" class="form-control">
+                                                                                          <option value="0">All Designation</option>
+                                                                                          <option value="Research Executive (RE)">Research Executive (RE)</option>
+                                                                                          <option value="Senior Research Executive (SRE)">Senior Research Executive (SRE)</option>
+                                                                                          <option value="Associate Research Manager (AM)">Associate Research Manager (AM)</option>
+                                                                                          <option value="Research Manager (RM)">Research Manager (RM)</option>
+                                                                                          <option value="Senior Research Manager (SRM)">Senior Research Manager (SRM)</option>
+                                                                                          <option value="Associate Vice President (AVP)">Associate Vice President (AVP)</option>
+                                                                                          <option value="Vice President (VP)">Vice President (VP)</option>
+                                                                                          <option value="Senior Vice President (SVP)">Senior Vice President (SVP)</option>
+                                                                                          <option value="Executive Officer (CEO)">Executive Officer (CEO)</option>
+                                                                                          <option value="Chief Operating Officer (COO)">Chief Operating Officer (COO)</option>
+                                                                                          <option value="Director">Director</option>
+                                                                                          <option value="Operations Executive (OE)">Operations Executive (OE)</option>
+                                                                                          <option value="Senior Operations Executive (SOE)">Senior Operations Executive (SOE)</option>
+                                                                                          <option value="Associate Manager Operations (AMO)">Associate Manager Operations (AMO)</option>
+                                                                                          <option value="Manager Operations (MO)">Manager Operations (MO)</option>
+                                                                                          <option value="Senior Manager Operations (SMO)">Senior Manager Operations (SMO)</option>
+                                                                                </select><br>
+                                                                                <button type="submit" class="btn btn-primary pull-right" name="catFilter">Generate Excel</button>
+                                                                                 </form>
+                                                                                <button class="btn btn-primary pull-right" id="gocategory" >Go</button><br>
+                                                                                <hr>
+                                                                            <form class="" action="/welcome/index.xlsx" method="get">
+                                                                                <select id="categoryStackOptions" name="categoryStackOptions" class="form-control">
+                                                                                          <option value="0" >No Stack</option>
+                                                                                          <option value="task">Stack by Tasks</option>
+                                                                                          <option value="designation">Stack by Designations</option>
+                                                                                          <option value="feeling">Stack by Feeling</option>
+                                                                                          <option value="sbu">Stack by SBU</option>
+                                                                                </select><br>
+                                                                                <button type="submit" class="btn btn-primary pull-right" name="categoryStackExport">Generate Excel</button>
+                                                                            </form>
+                                                                                <button id="categoryStack" class="btn btn-primary pull-right">Stack it</button>
+
+
+                                                                      </div>
+                                                            </div>
+                                                  </div>
+                                                  <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                      <h4 class="panel-title">
+                                                                                <a data-toggle="collapse" data-parent="#filteraccordion" id="designationAxis" href="#designationFilter">Designation X-Axis</a>
+                                                                      </h4>
+                                                            </div>
+                                                            <div id="designationFilter" class="panel-collapse collapse">
+                                                                      <div class="panel-body">
+                                                                        <form  action="/welcome/index.xlsx" method="get">
+                                                                                <select id="dProject" name= "dProject" class="form-control">
+                                                                                          <option value="0">All Projects</option>
+                                                                                </select><br>
+                                                                                <select id="dCategory" name="dCategory" class="form-control">
+                                                                                          <option value=0>All Category</option>
+                                                                                          <option value="Proposal">Proposal</option>
+                                                                                          <option value="Project Management">Project Management</option>
+                                                                                          <option value="RQ">RQ</option>
+                                                                                          <option value="Discussion Guide">Discussion Guide</option>
+                                                                                          <option value="Fieldwork">Fieldwork</option>
+                                                                                          <option value="Transcription and CA">Transcription and CA</option>
+                                                                                          <option value="Debrief">Debrief</option>
+                                                                                          <option value="Final Presentation">Final Presentation</option>
+                                                                                          <option value="Non Job Tasks">Non Job Tasks</option>
+                                                                                </select><br>
+                                                                                <select id="dTask" name="dTask" class="form-control">
+                                                                                          <option value="0">All Tasks</option>
+                                                                                </select><br>
+                                                                                <button type="submit" class="btn btn-primary pull-right" name="desFilter">Generate Excel</button>
+                                                                       </form>
+                                                                                <button class="btn btn-primary pull-right" id="goDesignation">Go</button><br>
+                                                                                <hr>
+                                                                                <form class="" action="/welcome/index.xlsx" method="get">
+                                                                                  <select id="designationCategoryOptions" name="designationStackOption"  class="form-control">
+                                                                                            <option value=0 >No Stack</option>
+                                                                                            <option value="category">Stack by Category</option>
+                                                                                            <option value="feeling">Stack by Feeling</option>
+                                                                                            <option value="sbu">Stack by SBU</option>
+                                                                                  </select><br>
+                                                                                    <button type="submit" class="btn btn-primary pull-right" name="sbuStackExport">Generate Excel</button>
+                                                                                </form>
+                                                                                <button id="designationStack" class="btn btn-primary pull-right">Stack it</button>
+                                                                      </div>
+                                                            </div>
+                                                  </div>
+                                                  <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                      <h4 class="panel-title">
+                                                                                <a data-toggle="collapse" data-parent="#filteraccordion" id="sbuAxis" href="#sbuFilter">SBU X-Axis</a>
+                                                                      </h4>
+                                                            </div>
+                                                            <div id="sbuFilter" class="panel-collapse collapse">
+                                                                      <div class="panel-body">
+                                                                          <form  action="/welcome/index.xlsx" method="get">
+                                                                                <select id="sCategory" name= "sCategory" class="form-control">
+                                                                                          <option value=0>All Category</option>
+                                                                                          <option value="Proposal">Proposal</option>
+                                                                                          <option value="Project Management">Project Management</option>
+                                                                                          <option value="RQ">RQ</option>
+                                                                                          <option value="Discussion Guide">Discussion Guide</option>
+                                                                                          <option value="Fieldwork">Fieldwork</option>
+                                                                                          <option value="Transcription and CA">Transcription and CA</option>
+                                                                                          <option value="Debrief">Debrief</option>
+                                                                                          <option value="Final Presentation">Final Presentation</option>
+                                                                                          <option value="Non Job Tasks">Non Job Tasks</option>
+                                                                                </select><br>
+                                                                                <select id="sDesignation" name="sDesignation" class="form-control">
+                                                                                          <option value="0">All Designation</option>
+                                                                                          <option value="Research Executive (RE)">Research Executive (RE)</option>
+                                                                                          <option value="Senior Research Executive (SRE)">Senior Research Executive (SRE)</option>
+                                                                                          <option value="Associate Research Manager (AM)">Associate Research Manager (AM)</option>
+                                                                                          <option value="Research Manager (RM)">Research Manager (RM)</option>
+                                                                                          <option value="Senior Research Manager (SRM)">Senior Research Manager (SRM)</option>
+                                                                                          <option value="Associate Vice President (AVP)">Associate Vice President (AVP)</option>
+                                                                                          <option value="Vice President (VP)">Vice President (VP)</option>
+                                                                                          <option value="Senior Vice President (SVP)">Senior Vice President (SVP)</option>
+                                                                                          <option value="Executive Officer (CEO)">Executive Officer (CEO)</option>
+                                                                                          <option value="Chief Operating Officer (COO)">Chief Operating Officer (COO)</option>
+                                                                                          <option value="Director">Director</option>
+                                                                                          <option value="Operations Executive (OE)">Operations Executive (OE)</option>
+                                                                                          <option value="Senior Operations Executive (SOE)">Senior Operations Executive (SOE)</option>
+                                                                                          <option value="Associate Manager Operations (AMO)">Associate Manager Operations (AMO)</option>
+                                                                                          <option value="Manager Operations (MO)">Manager Operations (MO)</option>
+                                                                                          <option value="Senior Manager Operations (SMO)">Senior Manager Operations (SMO)</option>
+                                                                                </select><br>
+                                                                                <button type="submit" class="btn btn-primary pull-right" name="sbuFilter">Generate Excel</button>
+                                                                              </form>
+                                                                                <button class="btn btn-primary pull-right" id="goSbu">Go</button><br>
+                                                                                <hr>
+                                                                                <form class="" action="/welcome/index.xlsx" method="get">
+                                                                                <select id="sbuStackOption"name= "sbuStackOption" class="form-control">
+                                                                                          <option value=0 >No Stack</option>
+                                                                                          <option value="category">Stack by Category</option>
+                                                                                          <option value="feeling">Stack by Feeling</option>
+                                                                                          <option value="designation">Stack by Designation</option>
+                                                                                </select><br>
+                                                                                <button type="submit" class="btn btn-primary pull-right" name="sbuStackExport">Generate Excel</button>
+                                                                                </form>
+                                                                                <button id="sbuStack" class="btn btn-primary pull-right">Stack it</button>
+                                                                      </div>
+                                                            </div>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </div>
+                    <div class="col-lg-9">
+                              <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                                  <h3 class="panel-title">Bar Graph</h3>
+                                        </div>
+                                        <div class="panel-body" style="height: 750px; width: 100%">
+                                                  <div class="row" >
+                                                            <div class="col-lg-8" id="projectBarGraph"> </div>
+                                                            <div class="col-lg-4" id="barlegend" style="height: 700px; overflow-y: scroll;"></div>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </div>
+          </div>
+<% end %>

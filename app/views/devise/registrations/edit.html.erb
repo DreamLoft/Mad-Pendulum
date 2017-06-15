@@ -1,0 +1,119 @@
+<h1>Edit Profile</h1>
+<%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+<div class="row">
+  <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :username, class: 'form-control' %>
+      </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.label :mobile_no %>
+      <%= f.text_field :mobileno, class: 'form-control' %>
+    </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <span class="label label-info">Currently waiting confirmation for: <%= resource.unconfirmed_email %></span>
+      <% end %>
+    </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :employee_code %>
+        <%= f.text_field :employee_id , class: 'form-control' %>
+      </div>
+      </div>
+  </div>
+  <% if current_user.isadmin == true %>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="form-group">
+        <%= f.label :designation %><br>
+        <%= f.select(:designation, ['Research Executive (RE)','Senior Research Executive (SRE)','Associate Research Manager (AM)', 'Research Manager (RM)','Senior Research Manager (SRM)','Associate Vice President (AVP)','Vice President (VP)','Senior Vice President (SVP)','Executive Officer (CEO)','Chief Operating Officer (COO)','Director','Operations Executive (OE)','Senior Operations Executive (SOE)','Associate Manager Operations (AMO)','Manager Operations (MO)','Senior Manager Operations (SMO)'], {}, { :class => 'form-control' }) %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+
+            <div class="form-group">
+                <%= f.label :isadmin %><br>
+                <%= f.select(:isadmin, ['false','true'], {}, { :class => 'form-control' }) %>
+              </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+          <%= f.label :ismanagement %><br>
+          <%= f.select(:ismanagement, ['false','true'], {}, { :class => 'form-control' }) %>
+        </div>
+
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+            <%= f.label :is_project_manager %><br>
+            <%= f.select(:is_project_manager, ['false','true'], {}, { :class => 'form-control' }) %>
+          </div>
+
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+            <%= f.label :is_project_lead %><br>
+            <%= f.select(:is_project_lead, ['false','true'], {}, { :class => 'form-control' }) %>
+          </div>
+
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <%= f.label :weight %>
+            <%= f.text_field :weight, class: 'form-control' %>
+          </div>
+          </div>
+      </div>
+
+<% end %>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+          <span class="help-block">leave blank if you don't want to change it</span>
+        </div>
+
+</div>
+<div class="col-lg-6">
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+      <span class="help-block">we need your current password to confirm your changes</span>
+    </div>
+  </div>
+  <div class="col-lg-6">
+  </div>
+  </div>
+<p class="pull-right">
+  <%= f.submit "Update", class: 'btn btn-primary' %>
+  <%= link_to "Back", :back, class: 'btn btn-default btn-sm ' %>
+</p>
+<% end %>
+<br/>

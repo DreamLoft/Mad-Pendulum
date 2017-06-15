@@ -1,0 +1,83 @@
+<div class = "panel panel-primary">
+   <div class = "panel-heading">
+      <h3 class = "panel-title">User Info</h3>
+   </div>
+
+<div>
+  <span class = "label label-default">User Name :</span>
+  <%= @user.username%>
+</div>
+
+<div>
+  <span class = "label label-default">Designation :</span>
+  <%= @user.designation %>
+</div>
+<div>
+  <span class = "label label-default">Subsidiary Business Unit :</span>
+  <%= @user.Sbu %>
+</div>
+
+<div>
+  <span class = "label label-default">Mobile No. :</span>
+  <%= @user.mobileno %>
+</div>
+<div>
+  <span class = "label label-default">App Version :</span>
+  <%= @user.version %>
+</div>
+<div>
+  <span class = "label label-default">Admin? :</span>
+  <%= @user.isadmin %>
+</div>
+<div>
+  <span class = "label label-default">Management? :</span>
+  <%= @user.ismanagement %>
+</div>
+<div>
+  <span class = "label label-default">Weight :</span>
+  <%= @user.weight %>
+</div>
+<div>
+  <span class = "label label-default">Email :</span>
+  <%= @user.email%>
+</div>
+<div>
+  <span class = "label label-default">Employee ID :</span>
+  <%= @user.employee_id %>
+</div>
+<div>
+  <span class = "label label-default">Co-Ordinator? :</span>
+  <%= @user.is_project_manager %>
+</div>
+<div>
+  <span class = "label label-default">Chef? :</span>
+  <%= @user.is_project_lead %>
+</div>
+<div>
+  <span class = "label label-default">Active? :</span>
+  <%= @user.approved %>
+</div>
+</div>
+<br/>
+<h2>Listing Projections <%= @user.username %> is Working on :- </h2>
+<% if @projections.blank? %>
+<p>User is Not Working on any Project</p>
+<% else %>
+<table class = "table table-striped">
+<br/>
+  <tr>
+    <th>Project</th>
+    <th>Join Date</th>
+    <th></th>
+  </tr>
+  <% @projections.each do |projection| %>
+    <tr>
+      <td><a href="<%= project_path(Project.find(projection.project_id)) %>">
+         <%= Project.find(projection.project_id).projectname %></a> 
+       </td>
+      <td><%= projection.joindate %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>
+<%= link_to 'Back', users_path , class: 'btn btn-primary' %>

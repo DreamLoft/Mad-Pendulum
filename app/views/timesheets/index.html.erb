@@ -1,0 +1,113 @@
+
+<%=  bootstrap_form_for :timesheet , url: filter_timesheets_path, method: :get do |f| %>
+<div class="row">
+       <div class="col-lg-4">
+            <div class="form-group">
+                    <%= f.select :project_id,  label: "Select Project" do %>
+                              <% if(@projects.empty?) %>
+                                    <option value= "null">No Project Available</option>
+                              <% else %>
+                                      <option value= 0 >All Projects</option>
+                                        <% @projects.each do |project| -%>
+                                                    <option value="<%=  project.id %>"><%= project.projectname %></option>
+                                          <% end %>
+                              <% end %>
+                         <% end %>
+                  </div>
+        </div>
+        <div class="col-lg-4">
+              <div class="form-group">
+                        <%= f.select :task_id,  label: "Select Task" do %>
+                              <% if(@tasks.empty?) %>
+                                      <option value= "null" >No Task Available</option>
+                              <% else %>
+                                      <option value= 0 >All Tasks</option>
+                                      <% @tasks.each do |task| -%>
+                                          <option value="<%=  task.id %>"><%= task.taskname %></option>
+                                     <% end %>
+                              <% end %>
+                        <% end %>
+                  </div>
+
+      </div>
+      <div class="col-lg-4">
+        <% if !(current_user.isadmin == true || current_user.ismanagement == true || current_user.is_project_lead == true || current_user.is_project_manager == true) %>
+        <div class="form-group">
+        <%= f.select :user_id,  label: "Select User" do %>
+                  <option value= "<%= current_user.id %>" ><%= current_user.username %></option>
+                  <% end %>
+                </div>
+            <% else %>
+            <div class="form-group">
+                  <%= f.select :user_id,  label: "Select User" do %>
+                      <% if (@users.empty?) %>
+                            <option value= "null" >No Users</option>
+                      <% else %>
+                              <option value= 0 >All Users</option>
+                             <%= @users.each do |user| %>
+                                  <option value="<%= user.id %>"><%= user.username %></option>
+                            <% end %>
+                      <% end %>
+                  <% end %>
+            </div>
+        <% end %>
+  </div>
+<br/>
+            <div class="form-group">
+                  <%= f.submit "Filter Timesheets", class: 'btn btn-primary pull-right' %>
+            </div>
+            <br/>
+            <hr>
+<% end %>
+<br/>
+<hr>
+<%= link_to 'New Timesheet', new_timesheet_path , class: 'btn btn-primary'%>
+<%= link_to 'Timesheet for Pipeline Project', pipeline_path , class: 'btn btn-primary'%>
+<%= link_to 'Export to Excel', timesheets_path(format: "xlsx") , class: 'btn btn-primary'%>
+<hr>
+<ul class="list-group">
+<% @timesheets.each do |timesheet| %>
+<li class="list-group-item">
+<table class = "table table-hover ">
+  <tr>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>  <%= Project.find(timesheet.project_id).projectname %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>  <%= Task.find(timesheet.task_id).taskname %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  <%=User.find(timesheet.user_id).username %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>  <%= timesheet.Tdate  %>
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  <%= timesheet.timespent %> Min.
+    </td>
+    <td style="width: 15%;">
+      <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>  <%= ((timesheet.timespent / 60) *( User.find(timesheet.user_id).weight)).round(2) %> Points
+    </td>
+    <td style="width: 5%;">
+      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>  <%= timesheet.feeling %>
+    </td>
+
+    <td style="width: 15%;"><%= link_to 'Details', timesheet_path(timesheet) %></td>
+  </tr>
+</table>
+</li>
+<% end %>
+
+<li class="list-group-item list-group-item-warning">
+    <% if (!@timesheets.empty?) %>
+<td style="width: 15%;">Average Timesheet :- </td>
+<td style="width: 15%;"><%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x})/60).to_i/@timesheets.count %>:<%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x}).to_i%60)/@timesheets.count %> Hours || </td>
+<td style="width: 15%;"> Total Time Spent :- </td>
+<td style="width: 15%;"><%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x})/60).to_i %>:<%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x}).to_i%60) %> Hours || </td>
+<td style="width: 15%;">Average Feeling :- </td>
+<td style="width: 5%;"><%= @timesheets.pluck(:feeling).inject{|sum,x| sum +x }.to_i/@timesheets.count %>  </td>
+<td style="width: 15%;"></td>
+<td style="width: 15%;"></td>
+<% end %>
+</li>
+</ul>

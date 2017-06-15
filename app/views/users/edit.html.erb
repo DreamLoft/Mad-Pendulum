@@ -1,0 +1,83 @@
+<h1>Edit Profile</h1>
+<%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
+<%= bootstrap_form_for :user , url: user_path(@user), method: :patch do |f| %>
+<div class="row">
+       <div class="col-lg-6">
+  <div class="form-group">
+    <%= f.text_field :username, label: "Full Name" , class: 'form-control' %>
+  </div>
+</div>
+ <div class="col-lg-6">
+  <div class="form-group">
+    <%= f.text_field :mobileno,label: "Contact Number", class: 'form-control' %>
+  </div>
+</div>
+</div>
+<div class="row">
+       <div class="col-lg-6">
+         <div class="form-group">
+           <%= f.text_field :employee_id ,label: "Employee Code", class: 'form-control' %>
+         </div>
+</div>
+       <div class="col-lg-6">
+<div class="form-group">
+    <%= f.select(:designation, ['Research Executive (RE)','Senior Research Executive (SRE)','Associate Research Manager (AM)', 'Research Manager (RM)','Senior Research Manager (SRM)','Associate Vice President (AVP)','Vice President (VP)','Senior Vice President (SVP)','Executive Officer (CEO)','Chief Operating Officer (COO)','Director','Operations Executive (OE)','Senior Operations Executive (SOE)','Associate Manager Operations (AMO)','Manager Operations (MO)','Senior Manager Operations (SMO)'], {label: "Select Designation"}, { :class => 'form-control' }) %>
+  </div>
+</div>
+</div>
+<div class="row">
+       <div class="col-lg-6">
+  <div class="form-group">
+      <%= f.select(:Sbu, ['Mumbai','Delhi','Bangalore','QCS India'], {label: "Select SBU"}, { :class => 'form-control' }) %>
+    </div>
+  </div>
+         <div class="col-lg-6">
+  <div class="form-group">
+      <%= f.select(:isadmin, ['false','true'], {label: "Admin?"}, { :class => 'form-control' }) %>
+    </div>
+</div>
+</div>
+
+<div class="row">
+       <div class="col-lg-6">
+    <div class="form-group">
+        <%= f.select(:ismanagement, ['false','true'], {label: "Management?"}, { :class => 'form-control' }) %>
+      </div>
+</div>
+       <div class="col-lg-6">
+      <div class="form-group">
+          <%= f.select(:is_project_manager, ['false','true'], {label: "Co-Ordinator?"}, { :class => 'form-control' }) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+           <div class="col-lg-6">
+        <div class="form-group">
+            <%= f.select(:is_project_lead, ['false','true'], {label: "Chef?"}, { :class => 'form-control' }) %>
+          </div>
+</div>
+       <div class="col-lg-6">
+
+
+         <div class="form-group">
+           <%= f.text_field :weight,label:"Weight", class: 'form-control', :required => true %>
+         </div>
+</div>
+</div>
+<div class="row">
+       <div class="col-lg-6">
+         <div class="form-group">
+           <%= f.email_field :email,label: "Enter Email", class: 'form-control' %>
+         </div>
+</div>
+       <div class="col-lg-6">
+                  <div class="form-group">
+                      <%= f.select(:approved, ['false','true'], {label: "Approved?"}, { :class => 'form-control' }) %>
+                  </div>
+</div>
+</div>
+  <%= f.submit "Update", class: 'btn btn-primary' %>
+<% end %>
+<br/>
+<%= link_to "Back", :back, class: 'btn btn-default btn-sm' %>

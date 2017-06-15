@@ -1,0 +1,45 @@
+<h1>Edit Time Sheet</h1>
+<%=  bootstrap_form_for :timesheet , url: timesheet_path(@timesheet), method: :patch do |f| %>
+
+<div class="form-group">
+  <%= f.select :project_id,  label: "Select Project" do %>
+    <% @projects.each do |project| -%>
+      <%= content_tag(:option, Project.find(project.project_id).projectname, value: project.project_id) %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="form-group">
+  <%= f.select :task_id , class: 'form-control' do %>
+    <% @tasks.each do |task| -%>
+      <%= content_tag(:option, task.taskname, value: task.id) %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="form-group">
+  <%= f.date_field :Tdate ,value: Timesheet.find(params[:id]).Tdate , class: 'form-control',  label: "Date" %>
+</div>
+
+<div class="form-group">
+  <%= f.text_field :timespent ,type: 'number', class: 'form-control',  label: "Time Spent" %>
+</div>
+
+<div class="form-group">
+  <%= f.text_field :feeling ,type: 'number',min: 1, max: 5, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.text_field :user_id ,type: 'hidden' , class: 'form-control',hide_label: true %>
+</div>
+
+<div class="form-group">
+  <%= f.text_field :totaltasktime,type: 'number' , class: 'form-control',  label: "Total Task Time" %>
+</div>
+
+
+  <p>
+    <%= f.submit "Update Time Sheet", class: 'btn btn-primary' %>
+  </p>
+<% end %>
+<%= link_to 'Back', projects_path %>

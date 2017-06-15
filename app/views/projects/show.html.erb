@@ -1,0 +1,109 @@
+<style>
+table {
+    width:100%;
+}
+
+</style>
+<br/>
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <span class="glyphicon glyphicon-paperclip" aria-hidden="true">
+    </span>  <%= @project.projectname %>
+  </div>
+  <div class="panel-body">
+    <table>
+      <tr>
+        <td>    <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>  <%= @project.jobid %></p></td>
+        <td>    <p><span class="glyphicon glyphicon-link" aria-hidden="true"></span>  <%= @project.clientname %></p></td>
+        <td>    <p><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>  <%= @project.startdate %></p></td>
+      </tr>
+      <tr>
+        <td><p><span class="glyphicon glyphicon-check" aria-hidden="true"></span>  <%= @project.projectstatus %></p></td>
+        <td><p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  <%= @project.sbu %></p></td>
+        <td>
+            <% if (User.where(id: @project.project_lead).empty?) %>
+              <p><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>  Not Assigned</p>
+            <% else %>
+            <p><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>  <%= User.find(@project.project_lead).username %> (Chef)</p>
+              <% end %>
+            </td>
+
+      </tr>
+      <tr>
+            <td><% if (User.where(id: @project.project_manager).empty?) %>
+            <p><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>  Not Assigned</p>
+
+            <% else %>
+            <p><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>  <%= User.find(@project.project_manager).username %> (Co-Ordinator)</p>
+            <% end %>
+          </td>
+            <td>
+              <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  <%= User.find(@project.user_id).username %></p>
+    </td>
+<% if (current_user.isadmin == true || current_user.ismanagement == true || current_user.is_project_manager== true || current_user.is_project_lead== true ) %>
+    <% timesheets= Timesheet.select{|a| a.project_id == @project.id } %>
+    <%else %>
+      <% timesheets= Timesheet.select{|a| a.project_id == @project.id && a.user_id== current_user.id } %>
+<% end %>
+    <td>
+      <% if !timesheets.empty? %>
+      <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  <%= ((timesheets.pluck(:timespent).inject{|sum,x| sum +x})/60).to_i %>:<%= ((timesheets.pluck(:timespent).inject{|sum,x| sum +x}).to_i%60) %> Hours
+    <% end %>
+    </td>
+      </tr>
+      <% points= timesheets.collect{|a| a.timespent/60 * User.find(a.user_id).weight } %>
+      <tr>
+      <td>
+        <% if !timesheets.empty? %>
+        <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+        <%= points.inject{|sum,a| sum+a} %> Points
+      <% end %>
+
+      </td>
+      <td></td>
+    </table>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<% cat= Task.all.pluck(:task_category).uniq %>
+<% cat.each do |c| %>
+<div class = "panel panel-info">
+      <div class = "panel-heading">
+            <h3 class = "panel-title"><%= c %>
+            <a data-toggle="collapse" href="#<%= c.gsub(/\s+/, "") %>">
+              <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+            </a>
+            </h3>
+      </div>
+<div class="panel-body panel-collapse collapse" id="<%= c.gsub(/\s+/, "") %>">
+<ul class="list-group">
+  <% @tasks.each do |task| %>
+  <% if(task.task_category== c) %>
+          <li class="list-group-item">
+            <% mytimesheets= @timesheets.select{|a| a.task_id ==  task.id} %>
+            <% if !mytimesheets.empty? %>
+            <span class="badge">
+              <%= mytimesheets.pluck(:timespent).inject{|sum,x| sum + (x/60) * (User.find(@project.user_id).weight)}.round(2) %> Points
+            </span>
+
+            <span class="badge">
+              <%= ((mytimesheets.pluck(:timespent).inject{|sum,x| sum +x})/60).to_i %>:<%= ((mytimesheets.pluck(:timespent).inject{|sum,x| sum +x}).to_i%60) %> Hours
+            </span>
+  <% end %>
+            <%= task.taskname %>
+          </li>
+          <% end %>
+  <% end %>
+  </ul>
+
+</div>
+</div>
+<% end %>
