@@ -73,26 +73,36 @@ wb.add_worksheet(name: "Timesheets") do |sheet|
                               chart.valAxis.gridlines = false
                               chart.catAxis.gridlines = false
                     end
+
           elsif(@pros)
-                    sheet.add_row ["Category","Task","Designation"]
-                    sheet.add_row [@category,@task ,@designation]
-                    sheet.add_row ["", "" ]
-                    sheet.add_row ["", "" ]
+                    sheet.add_row ["Category" , "Task" , "Designation" ]
+                    sheet.add_row [@category , @task  , @designation ]
+                    sheet.add_row ["", "", @projects.length ]
                     sheet.add_row ["", "" ]
                     sheet.add_row ["Project","Time Spent"]
                     @pros.each{|key,value|
-                    sheet.add_row [key, value ]
+                      sheet.add_row [ key , value ]
+
                     }
-                    sheet.add_chart(Axlsx::Bar3DChart, :start_at => "H5", :end_at => "Z#{5+(@projects.length*4)}") do |chart|
-                              chart.add_series :data => sheet["B7:B#{6+@projects.length}"], :labels => sheet["A7:A#{6+@projects.length}"], :title => "Projects Stats", :colors => @projects.map { "00FF00" }
+                    if(@pck== true)
+                    sheet.add_chart(Axlsx::Bar3DChart, :start_at => "J5", :end_at => "Z#{15+ @projects.length }") do |chart|
+                              chart.add_series :data => sheet["B6:B#{5+ @projects.length}"], :labels => sheet["A6:A#{5+ @projects.length}"], :title => "Project Stats", :colors => Array.new( @projects.length ,"D4B633")
                               chart.valAxis.gridlines = false
                               chart.catAxis.gridlines = false
                     end
-          elsif(@categoryStack)
+                    else
+                    sheet.add_chart(Axlsx::Bar3DChart, :start_at => "J5", :end_at => "Z#{15+ @projects.length }") do |chart|
+                              chart.add_series :data => sheet["B6:B#{4+ @projects.length}"], :labels => sheet["A6:A#{4+ @projects.length}"], :title => "Project Stats", :colors => Array.new( @projects.length ,"D4B633")
+                              chart.valAxis.gridlines = false
+                              chart.catAxis.gridlines = false
+                    end
+                    end
 
+
+          elsif(@categoryStack)
           if(@categoryStack == "feeling")
             sheet.add_row ["Category","Very Sad","Sad", "Neutral", "Happy", "Very Happy"]
-            sheet.add_row ["Proposal", @proposalCategory[:one] ,@proposalCategory[:two], @proposalCategory[:three], @proposalCategory[:four], @proposalCategory[:five]]
+            sheet.add_row ["Proposal", @proposalCategory[:one] , @proposalCategory[:two], @proposalCategory[:three], @proposalCategory[:four], @proposalCategory[:five] ]
             sheet.add_row ["Project Management", @pmCategory[:one],@pmCategory[:two], @pmCategory[:three], @pmCategory[:four], @pmCategory[:five]]
             sheet.add_row ["RQ", @rqCategory[:one],@rqCategory[:two], @rqCategory[:three], @rqCategory[:four], @rqCategory[:five]]
             sheet.add_row ["Discussion Guide", @dgCategory[:one],@dgCategory[:two], @dgCategory[:three], @dgCategory[:four], @dgCategory[:five]]
@@ -198,7 +208,7 @@ wb.add_worksheet(name: "Timesheets") do |sheet|
           sheet.add_row ["","","", "", "", "",""]
           sheet.add_row ["Category","On the Road","Flight Mode"]
           sheet.add_row ["Travel",@travelCategory[:road],@travelCategory[:flight]]
-          
+
 
             end
           elsif(@designationStack)

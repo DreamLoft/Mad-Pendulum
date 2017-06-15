@@ -393,11 +393,17 @@ class WelcomeController < ApplicationController
 
     # -------------------------------------------------Project X-Axis Export---------------------------------------------------------
     if  (params[:pcategory] && params[:ptask] && params[:pdesignation])
+      #render json: params
+
       if params[:projectcheckbox]
         @projects= Project.find(params[:projectcheckbox].map(&:to_i))
+        @pck= true
       else
         @projects= Project.all
+        @pck= false
       end
+
+      @p= @projects.pluck(:id)
       @category=params[:pcategory]
       @designation= params[:pdesignation]
       if params[:ptask]== "0"
@@ -405,9 +411,9 @@ class WelcomeController < ApplicationController
       else
         @task= Task.find(params[:ptask]).taskname
       end
+      @pros= Hash.new
       if (params[:pcategory] =="0" && params[:pdesignation] == "0")
-        @timesheets= Timesheet.where("project_id IN (?)", params[:projectcheckbox].map(&:to_i))
-        @pros= Hash.new
+        @timesheets= Timesheet.where("project_id IN (?)", @p)
         @projects.each{ |p|
           @pros[p.projectname]= @timesheets.select{|t| t.project_id == p.id }.pluck(:timespent).inject{|i,sum| sum+i }
         }
@@ -418,10 +424,9 @@ class WelcomeController < ApplicationController
           }
         end
       elsif  (params[:pcategory]=="0" && params[:pdesignation] != "0")
-        @t=Timesheet.where("project_id IN (?)", params[:projectcheckbox].map(&:to_i))
+        @t=Timesheet.where("project_id IN (?)", @p)
         @timesheets= @t.select{|t| User.find(t.user_id).designation == params[:pdesignation] }
         #  render json: @timesheets
-        @pros= Hash.new
         @projects.each{ |p|
           @pros[p.projectname]= @timesheets.select{|t| t.project_id == p.id }.pluck(:timespent).inject{|i,sum| sum+i }
         }
@@ -433,9 +438,9 @@ class WelcomeController < ApplicationController
         end
       elsif  (params[:pcategory] !="0" && params[:pdesignation] == "0")
         if (params[:ptask] == "0")
-          @t=Timesheet.where("project_id IN (?)", params[:projectcheckbox].map(&:to_i))
+          @t=Timesheet.where("project_id IN (?)", @p)
           @timesheets= @t.select{|t| Task.find(t.task_id).task_category == params[:pcategory] }
-          @pros= Hash.new
+
           @projects.each{ |p|
             @pros[p.projectname]= @timesheets.select{|t| t.project_id == p.id }.pluck(:timespent).inject{|i,sum| sum+i }
           }
@@ -446,9 +451,9 @@ class WelcomeController < ApplicationController
             }
           end
         elsif (params[:ptask] != "0" )
-          @t=Timesheet.where("project_id IN (?)", params[:projectcheckbox].map(&:to_i))
+          @t=Timesheet.where("project_id IN (?)", @p)
           @timesheets= @t.select{|t|  t.task_id == params[:ptask].to_i }
-          @pros= Hash.new
+
           @projects.each{ |p|
             @pros[p.projectname]= @timesheets.select{|t| t.project_id == p.id }.pluck(:timespent).inject{|i,sum| sum+i }
           }
@@ -461,9 +466,9 @@ class WelcomeController < ApplicationController
         end
       elsif(params[:pcategory] !="0" && params[:pdesignation] != "0")
         if (params[:ptask] == "0")
-          @t=Timesheet.where("project_id IN (?)", params[:projectcheckbox].map(&:to_i))
+          @t=Timesheet.where("project_id IN (?)", @p)
           @timesheets= @t.select{|t| Task.find(t.task_id).task_category == params[:pcategory] && User.find(t.user_id).designation == params[:pdesignation] }
-          @pros= Hash.new
+
           @projects.each{ |p|
             @pros[p.projectname]= @timesheets.select{|t| t.project_id == p.id }.pluck(:timespent).inject{|i,sum| sum+i }
           }
@@ -473,10 +478,11 @@ class WelcomeController < ApplicationController
               response.headers['Content-Disposition'] = 'attachment; filename="tSheet.xlsx"'
             }
           end
-        else
-          @t=Timesheet.where("project_id IN (?)", params[:projectcheckbox].map(&:to_i))
+        elsif (params[:ptask] != "0")
+
+          @t=Timesheet.where("project_id IN (?)", @p)
           @timesheets= @t.select{|t| User.find(t.user_id).designation == params[:pdesignation] && t.task_id == params[:ptask].to_i }
-          @pros= Hash.new
+
           @projects.each{ |p|
             @pros[p.projectname]= @timesheets.select{|t| t.project_id == p.id }.pluck(:timespent).inject{|i,sum| sum+i }
           }

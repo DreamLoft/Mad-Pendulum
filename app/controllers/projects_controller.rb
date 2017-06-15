@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   def index
   #  @projects= Project.all.order('created_at DESC').paginate(:page => params[:page])
   @projects = Project.where( :is_active => true).order('created_at DESC').paginate(:page => params[:page])
+    
 
 
 
