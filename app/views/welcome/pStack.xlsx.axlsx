@@ -47,18 +47,19 @@ sheet.add_row ["Project Name","Proposal","Project Management","RQ","Discussion G
 @projects.each{|p|
     sheet.add_row [ p.projectname, @pros[p.projectname+"Proposal"], @pros[p.projectname+"Project Management"] ,@pros[p.projectname+"RQ"] , @pros[p.projectname+"Discussion Guide"], @pros[p.projectname+"Fieldwork"] , @pros[p.projectname+"Transcription and CA"] , @pros[p.projectname+"Debrief"] , @pros[p.projectname+"Final Presentation"] , @pros[p.projectname+"Travel"] , @pros[p.projectname+"Leadership"] , @pros[p.projectname+"Non Job Tasks"]]
 }
-sheet.add_chart(Axlsx::Bar3DChart, "C#{5+ @projects.length}", :end_at => "Z#{5 +(@projects.length * @projects.length)+10}" , :title => "Project stack by #{@stackOpt}",:grouping=> :stacked) do |chart|
-  chart.add_series :data => sheet["B2:B#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["B1"], :colors => ['D4B633','D4B633','D4B633']
-  chart.add_series :data => sheet["C2:C#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["C1"], :colors => ['358795','358795','358795']
-  chart.add_series :data => sheet["D2:D#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["D1"], :colors => ['A06D3B','A06D3B','A06D3B']
-  chart.add_series :data => sheet["E2:E#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["E1"], :colors => ['F7D420','F7D420','F7D420']
-  chart.add_series :data => sheet["F2:F#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["F1"], :colors => ['483D48','483D48','483D48']
-  chart.add_series :data => sheet["G2:G#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["G1"], :colors => ['700D4C','700D4C','700D4C']
-  chart.add_series :data => sheet["H2:H#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["H1"], :colors => ['63AA5E','63AA5E','63AA5E']
-  chart.add_series :data => sheet["I2:I#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["I1"], :colors => ['EF432A','EF432A','EF432A']
-  chart.add_series :data => sheet["J2:J#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["J1"], :colors => ['FF2856','FF2856','FF2856']
-  chart.add_series :data => sheet["K2:K#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["K1"], :colors => ['DBF721','DBF721','DBF721']
-  chart.add_series :data => sheet["L2:L#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["L1"], :colors => ['68B203','68B203','68B203']
+sheet.add_chart(Axlsx::Bar3DChart, :start_at => "C#{5+ @projects.length}", :end_at => "Z#{5 +(@projects.length * @projects.length)+10}", :title => "Project stack by #{@stackOpt}",:grouping=> :stacked) do |chart|
+chart.add_series :data => sheet["B2:B#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["B1"], :colors => Array.new( @projects.length ,"D4B633")
+chart.add_series :data => sheet["C2:C#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["C1"], :colors => Array.new( @projects.length ,"358795")
+chart.add_series :data => sheet["D2:D#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["D1"], :colors => Array.new( @projects.length ,"A06D3B")
+chart.add_series :data => sheet["E2:E#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["E1"], :colors => Array.new( @projects.length ,"F7D420")
+chart.add_series :data => sheet["F2:F#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["F1"], :colors => Array.new( @projects.length ,"483D48")
+chart.add_series :data => sheet["G2:G#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["G1"], :colors => Array.new( @projects.length ,"700D4C")
+chart.add_series :data => sheet["H2:H#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["H1"], :colors => Array.new( @projects.length ,"63AA5E")
+chart.add_series :data => sheet["I2:I#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["I1"], :colors => Array.new( @projects.length ,"EF432A")
+chart.add_series :data => sheet["J2:J#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["J1"], :colors => Array.new( @projects.length ,"FF2856")
+chart.add_series :data => sheet["K2:K#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["K1"], :colors => Array.new( @projects.length ,"DBF721")
+chart.add_series :data => sheet["L2:L#{1+@projects.length}"], :labels => sheet["A2:A#{1+@projects.length }"], :title => sheet["L1"], :colors => Array.new( @projects.length ,"68B203")
+
 end
 
 
