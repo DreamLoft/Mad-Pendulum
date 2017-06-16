@@ -27,9 +27,11 @@ namespace :api, defaults: {format: 'json'} do
       put '/projects/:id', to: 'projects#update'
       # Tasks API
       get '/tasks', to: 'tasks#index'
+      delete '/tasks/:id', to: 'tasks#destroy'
       # Timesheets API
       get '/timesheets', to: 'timesheets#index'
       post '/timesheets', to: 'timesheets#create'
+      delete 'timesheets/:id', to: 'timesheets#destroy'
       #Projection API
       get '/projections', to: 'projections#index'
       post '/projections',to: 'projections#create'

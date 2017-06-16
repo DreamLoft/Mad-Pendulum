@@ -29,6 +29,11 @@ def create
     render json: "An Error Occured Please Try Again Later".to_json, status: :conflict
 end
 
+def destroy
+@timesheet = Timesheet.find(params[:id])
+@timesheet.destroy
+   render json: "Deleted", status: :destroyed
+end
 
 private
 def timesheet_params

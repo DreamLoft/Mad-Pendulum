@@ -5,5 +5,10 @@ class Api::TasksController < Api::ApplicationController
              @tasks = Task.all
              render json: @tasks
         end
+        def destroy
+          @task = Task.find(params[:id])
+          @task.destroy
+              render json: "Deleted", status: :destroyed
+        end
 
  end
