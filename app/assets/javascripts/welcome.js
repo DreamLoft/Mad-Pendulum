@@ -1,4 +1,4 @@
-var url= "http://ec2-35-154-79-14.ap-south-1.compute.amazonaws.com/api/data";
+var url= "http://ec2-35-154-122-82.ap-south-1.compute.amazonaws.com/api/data";
 dataRequest(url);
 function dataRequest(url){
   d3.json(url, function (err, data) {
