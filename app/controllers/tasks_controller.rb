@@ -34,7 +34,7 @@ class TasksController < ApplicationController
 
   def edit
     @task= Task.find(params[:id])
-    @taskcategory= ['proposal','Project Management','Briefing','Desk Research/Data Mining','Discussion Guide','Interim','Debrief','Synthesis and Opportunity Mapping','Workshop','Travel']
+    @taskcategory= ['Proposal','Project Management','Briefing','Desk Research/Data Mining','Discussion Guide','Interim','Debrief','Synthesis and Opportunity Mapping','Workshop','Travel']
   end
 
 
