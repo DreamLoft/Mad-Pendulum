@@ -23,7 +23,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: madpendulumdb
+  database: madpendulumDb
   username: admin
   password: Dreamloft123!
   host: madpendulumdb.cxslo07zwsvu.ap-south-1.rds.amazonaws.com
