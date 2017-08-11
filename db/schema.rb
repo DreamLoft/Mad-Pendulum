@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317055921) do
+ActiveRecord::Schema.define(version: 20170811080800) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -63,15 +63,13 @@ ActiveRecord::Schema.define(version: 20170317055921) do
   end
 
   create_table "timesheets", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "project_id"
-    t.integer  "task_id"
-    t.date     "Tdate"
-    t.float    "timespent"
-    t.integer  "feeling"
-    t.integer  "user_id"
-    t.float    "totaltasktime"
+    t.integer "project_id"
+    t.integer "task_id"
+    t.date    "Tdate"
+    t.float   "timespent"
+    t.integer "feeling"
+    t.integer "user_id"
+    t.float   "totaltasktime"
     t.index ["project_id"], name: "index_timesheets_on_project_id"
     t.index ["task_id"], name: "index_timesheets_on_task_id"
     t.index ["user_id"], name: "index_timesheets_on_user_id"
