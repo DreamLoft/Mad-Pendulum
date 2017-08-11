@@ -21,11 +21,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: madpendulumDb
-  username: admin
-  password: Dreamloft123!
-  host: madpendulumdb.cxslo07zwsvu.ap-south-1.rds.amazonaws.com
-  port: 3306
-  socket: /var/run/mysqld/mysqld.sock
+  <<: *default
+  database: db/production.sqlite3
