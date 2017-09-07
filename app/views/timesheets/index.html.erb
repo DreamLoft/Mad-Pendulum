@@ -31,7 +31,7 @@
 
       </div>
       <div class="col-lg-4">
-        <% if !(current_user.isadmin == true || current_user.ismanagement == true || current_user.is_project_lead == true || current_user.is_project_manager == true) %>
+        <% if !(current_user.isadmin == true ||  current_user.is_project_lead == true || current_user.is_project_manager == true) %>
         <div class="form-group">
         <%= f.select :user_id,  label: "Select User" do %>
                   <option value= "<%= current_user.id %>" ><%= current_user.username %></option>

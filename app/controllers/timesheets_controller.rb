@@ -3,7 +3,7 @@ class TimesheetsController < ApplicationController
   #skip_before_action :verify_authenticity_token ,only: [:index, :show, :new, :edit, :create, :update , :destroy]
 def index
 #@timesheets= Timesheet.all.order("created_at DESC")
-if (current_user.isadmin == true || current_user.ismanagement == true )
+if (current_user.isadmin == true  )
   @timesheets = Timesheet.select{|a| Project.find(a.project_id).is_active == true }
 elsif (current_user.is_project_manager == true || current_user.is_project_lead== true )
 

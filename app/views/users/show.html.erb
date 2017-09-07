@@ -30,10 +30,6 @@
   <%= @user.isadmin %>
 </div>
 <div>
-  <span class = "label label-default">Management? :</span>
-  <%= @user.ismanagement %>
-</div>
-<div>
   <span class = "label label-default">Weight :</span>
   <%= @user.weight %>
 </div>
@@ -73,7 +69,7 @@
   <% @projections.each do |projection| %>
     <tr>
       <td><a href="<%= project_path(Project.find(projection.project_id)) %>">
-         <%= Project.find(projection.project_id).projectname %></a> 
+         <%= Project.find(projection.project_id).projectname %></a>
        </td>
       <td><%= projection.joindate %></td>
     </tr>

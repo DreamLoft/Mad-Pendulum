@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   def index
       #@tasks = Task.all
       @tasks = Task.all
-      if (current_user.isadmin == true || current_user.ismanagement == true)
+      if (current_user.isadmin == true )
         @timesheets= Timesheet.all
       elsif (current_user.is_project_manager== true || current_user.is_project_lead== true )
         @timesheets= Timesheet.select{|a| current_user.id == Project.find(a.project_id).project_lead || current_user.id == Project.find(a.project_id).project_manager || current_user.id == a.user_id }
@@ -19,7 +19,7 @@ class TasksController < ApplicationController
 
   def show
       @task = Task.find(params[:id])
-      if (current_user.isadmin == true || current_user.ismanagement == true || current_user.is_project_manager== true || current_user.is_project_lead== true )
+      if (current_user.isadmin == true ||  current_user.is_project_manager== true || current_user.is_project_lead== true )
         @timesheets= Timesheet.all
       else
         @timesheets= Timesheet.select{|a| a.user_id== current_user.id}

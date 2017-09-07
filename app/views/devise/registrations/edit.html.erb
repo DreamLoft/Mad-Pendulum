@@ -54,35 +54,24 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="form-group">
-          <%= f.label :ismanagement %><br>
-          <%= f.select(:ismanagement, ['false','true'], {}, { :class => 'form-control' }) %>
+            <%= f.label :Chef %><br>
+          <%= f.select(:is_project_lead, ['false','true'], {label: "Chef?"}, { :class => 'form-control' }) %>
         </div>
-
       </div>
       <div class="col-lg-6">
         <div class="form-group">
-            <%= f.label :is_project_manager %><br>
-            <%= f.select(:is_project_manager, ['false','true'], {}, { :class => 'form-control' }) %>
+              <%= f.label :co_ordinator %><br>
+            <%= f.select(:is_project_manager, ['false','true'], {label: "Co-Ordinator?"} , { :class => 'form-control' }) %>
           </div>
 
         </div>
     </div>
     <div class="row">
-      <div class="col-lg-6">
         <div class="form-group">
-            <%= f.label :is_project_lead %><br>
-            <%= f.select(:is_project_lead, ['false','true'], {}, { :class => 'form-control' }) %>
-          </div>
-
+          <%= f.label :weight %>
+          <%= f.text_field :weight, class: 'form-control' %>
         </div>
-        <div class="col-lg-6">
-          <div class="form-group">
-            <%= f.label :weight %>
-            <%= f.text_field :weight, class: 'form-control' %>
-          </div>
-          </div>
       </div>
-
 <% end %>
     <div class="row">
       <div class="col-lg-6">
@@ -101,13 +90,13 @@
 </div>
 </div>
 <div class="row">
-  <div class="col-lg-6">
+
     <div class="form-group">
       <%= f.label :current_password %>
       <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
       <span class="help-block">we need your current password to confirm your changes</span>
     </div>
-  </div>
+
   <div class="col-lg-6">
   </div>
   </div>

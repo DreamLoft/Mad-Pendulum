@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811080800) do
+ActiveRecord::Schema.define(version: 20170905131356) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 20170811080800) do
     t.string   "mobileno"
     t.float    "version"
     t.boolean  "isadmin",                default: false
-    t.boolean  "ismanagement",           default: false
     t.string   "email",                  default: "",      null: false
     t.string   "encrypted_password",     default: "",      null: false
     t.string   "reset_password_token"

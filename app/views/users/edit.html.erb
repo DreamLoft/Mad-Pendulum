@@ -2,82 +2,68 @@
 <%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
 <%= bootstrap_form_for :user , url: user_path(@user), method: :patch do |f| %>
 <div class="row">
-       <div class="col-lg-6">
-  <div class="form-group">
-    <%= f.text_field :username, label: "Full Name" , class: 'form-control' %>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.text_field :username, label: "Full Name" , class: 'form-control' %>
+    </div>
   </div>
-</div>
- <div class="col-lg-6">
-  <div class="form-group">
-    <%= f.text_field :mobileno,label: "Contact Number", class: 'form-control' %>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.text_field :mobileno,label: "Contact Number", class: 'form-control' %>
+    </div>
   </div>
-</div>
 </div>
 <div class="row">
-       <div class="col-lg-6">
-         <div class="form-group">
-           <%= f.text_field :employee_id ,label: "Employee Code", class: 'form-control' %>
-         </div>
-</div>
-       <div class="col-lg-6">
-<div class="form-group">
-    <%= f.select(:designation, ['Associate','Lead','Associate Partner', 'Partner'], {label: "Select Designation"}, { :class => 'form-control' }) %>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.text_field :employee_id ,label: "Employee Code", class: 'form-control' %>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.select(:designation, ['Associate','Lead','Associate Partner', 'Partner'], {label: "Select Designation"}, { :class => 'form-control' }) %>
+    </div>
   </div>
 </div>
-</div>
 <div class="row">
-       <div class="col-lg-6">
-  <div class="form-group">
+  <div class="col-lg-6">
+    <div class="form-group">
       <%= f.select(:Sbu, ['Mumbai','Delhi','Bangalore','Dhaka','Jakarta','Colombo','Singapore','Corporate'], {label: "Select SBU"}, { :class => 'form-control' }) %>
     </div>
   </div>
-         <div class="col-lg-6">
-  <div class="form-group">
+  <div class="col-lg-6">
+    <div class="form-group">
       <%= f.select(:isadmin, ['false','true'], {label: "Admin?"}, { :class => 'form-control' }) %>
     </div>
-</div>
+  </div>
 </div>
 
 <div class="row">
-       <div class="col-lg-6">
+  <div class="col-lg-6">
     <div class="form-group">
-        <%= f.select(:ismanagement, ['false','true'], {label: "Management?"}, { :class => 'form-control' }) %>
-      </div>
-</div>
-       <div class="col-lg-6">
-      <div class="form-group">
-          <%= f.select(:is_project_manager, ['false','true'], {label: "Co-Ordinator?"}, { :class => 'form-control' }) %>
-        </div>
-      </div>
+      <%= f.select(:is_project_lead, ['false','true'], {label: "Chef?"}, { :class => 'form-control' }) %>
     </div>
-
-    <div class="row">
-           <div class="col-lg-6">
-        <div class="form-group">
-            <%= f.select(:is_project_lead, ['false','true'], {label: "Chef?"}, { :class => 'form-control' }) %>
-          </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.select(:is_project_manager, ['false','true'], {label: "Co-Ordinator?"}, { :class => 'form-control' }) %>
+    </div>
+  </div>
 </div>
-       <div class="col-lg-6">
 
-
-         <div class="form-group">
-           <%= f.text_field :weight,label:"Weight", class: 'form-control', :required => true %>
-         </div>
-</div>
-</div>
 <div class="row">
-       <div class="col-lg-6">
-         <div class="form-group">
-           <%= f.email_field :email,label: "Enter Email", class: 'form-control' %>
-         </div>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.text_field :weight,label:"Weight", class: 'form-control', :required => true %>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <%= f.select(:approved, ['false','true'], {label: "Approved?"}, { :class => 'form-control' }) %>
+    </div>
+  </div>
 </div>
-       <div class="col-lg-6">
-                  <div class="form-group">
-                      <%= f.select(:approved, ['false','true'], {label: "Approved?"}, { :class => 'form-control' }) %>
-                  </div>
-</div>
-</div>
-  <%= f.submit "Update", class: 'btn btn-primary' %>
+<%= f.submit "Update", class: 'btn btn-primary' %>
 <% end %>
 <br/>
 <%= link_to "Back", :back, class: 'btn btn-default btn-sm' %>

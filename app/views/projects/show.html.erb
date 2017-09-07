@@ -41,7 +41,7 @@ table {
             <td>
               <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  <%= User.find(@project.user_id).username %></p>
     </td>
-<% if (current_user.isadmin == true || current_user.ismanagement == true || current_user.is_project_manager== true || current_user.is_project_lead== true ) %>
+<% if (current_user.isadmin == true ||  current_user.is_project_manager== true || current_user.is_project_lead== true ) %>
     <% timesheets= Timesheet.select{|a| a.project_id == @project.id } %>
     <%else %>
       <% timesheets= Timesheet.select{|a| a.project_id == @project.id && a.user_id== current_user.id } %>

@@ -43,6 +43,6 @@ def show
 end
 private
 def user_params
-  params.require(:user).permit( :username, :mobileno, :version,:designation ,:isadmin,:ismanagement, :is_project_manager, :is_project_lead, :employee_id, :weight, :email,:approved, :Sbu)
+  params.require(:user).permit( :username, :mobileno, :version,:designation ,:isadmin, :is_project_manager, :is_project_lead, :employee_id, :weight, :email,:approved, :Sbu)
 end
 end

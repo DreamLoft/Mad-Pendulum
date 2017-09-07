@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   def index
   #  @projects= Project.all.order('created_at DESC').paginate(:page => params[:page])
   @projects = Project.where( :is_active => true).order('created_at DESC').paginate(:page => params[:page])
-    
+
 
 
 
@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    if(current_user.isadmin == true || current_user.ismanagement == true || current_user.id == @project.project_manager || current_user.id== @project.project_lead )
+    if(current_user.isadmin == true ||  current_user.id == @project.project_manager || current_user.id== @project.project_lead )
       @timesheets= Timesheet.select{|a| a.project_id == @project.id }
     else
       @timesheets= Timesheet.select{|a| a.project_id== @project.id && a.user_id == current_user.id}
