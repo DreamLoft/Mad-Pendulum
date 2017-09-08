@@ -38,7 +38,6 @@ namespace :api, defaults: {format: 'json'} do
       #User API
       get '/users', to: 'users#index'
       put '/users/:id', to: 'users#update'
-      delete '/users/:id', to: 'users#destroy'
       #Dashboard Data
       get '/data', to:'data#index'
       get '/data/:id', to:'data#show'
