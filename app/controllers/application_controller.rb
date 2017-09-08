@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 protected
 def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username,:designation,:mobileno,:isadmin,:weight,:version, :is_project_manager, :is_project_lead, :employee_id,:approved])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username,:designation,:mobileno,:isadmin,:weight,:version, :is_project_manager, :is_project_lead, :employee_id,:approved])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username,:designation,:mobileno,:Sbu, :employee_id])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username,:designation,:mobileno,:isadmin,:weight,:Sbu,:version, :is_project_manager, :is_project_lead, :employee_id])
 end
 end

@@ -39,7 +39,7 @@
   <div class="col-lg-6">
     <div class="form-group">
         <%= f.label :designation %><br>
-        <%= f.select(:designation, ['Research Executive (RE)','Senior Research Executive (SRE)','Associate Research Manager (AM)', 'Research Manager (RM)','Senior Research Manager (SRM)','Associate Vice President (AVP)','Vice President (VP)','Senior Vice President (SVP)','Executive Officer (CEO)','Chief Operating Officer (COO)','Director','Operations Executive (OE)','Senior Operations Executive (SOE)','Associate Manager Operations (AMO)','Manager Operations (MO)','Senior Manager Operations (SMO)'], {}, { :class => 'form-control' }) %>
+        <%= f.select(:designation, ['Associate','Lead','Associate Partner', 'Partner'], {}, { :class => 'form-control' }) %>
       </div>
     </div>
     <div class="col-lg-6">
@@ -67,9 +67,17 @@
         </div>
     </div>
     <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :Sbu %><br>
+          <%= f.select(:Sbu, ['Mumbai','Delhi','Bangalore','Dhaka','Jakarta','Colombo','Singapore','Corporate'], {}, { :class => 'form-control' }) %>
+        </div>
+      </div>
+      <div class="col-lg-6">
         <div class="form-group">
           <%= f.label :weight %>
           <%= f.text_field :weight, class: 'form-control' %>
+        </div>
         </div>
       </div>
 <% end %>

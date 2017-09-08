@@ -9,70 +9,84 @@
     <div class="input-group">
       <%= f.text_field :email , :required => true, hide_label: true, placeholder: "Enter the Email of User You want to Search for ..."  %>
       <span class="input-group-btn">
-          <%= f.submit "Find User", class: 'btn btn-primary' %>
+        <%= f.submit "Find User", class: 'btn btn-primary' %>
       </span>
     </div>
   </div>
 </div>
 <% end %>
 <br>
-<div><center>-------------------OR-------------------</center></div>
-<br>
-<%=  bootstrap_form_tag  url: users_path, method: :get do |f| %>
+
+
 <div class="row">
-       <div class="col-lg-12">
-            <div class="form-group">
-                  <%= f.select :status,  label: "Select Status", hide_label: true do %>
-                    <option value= "all">All Users</option>
-                    <option value= "active">Active Users</option>
-                    <option value= "inactive">Inactive Users</option>
-                  <% end %>
-            </div>
-          </div>
-</div>
-<div class="row">
-  <div class="col-lg-12">
-    <%= f.submit "Filter Users", class: 'btn btn-primary pull-right' %>
+  <div class="col-lg-6">
+    <%=  bootstrap_form_tag  url: users_path, method: :get do |f| %>
+    <div class="form-group">
+      <%= f.select :status,  label: "Select Status", hide_label: true do %>
+      <option value= "all">All Users</option>
+      <option value= "active">Active Users</option>
+      <option value= "inactive">Inactive Users</option>
+      <% end %>
+      <%= f.submit "Filter Users", class: 'btn btn-primary pull-right' %>
+    </div>
+    <% end %>
+  </div>
+  <div class="col-lg-6">
+    <%=  bootstrap_form_tag  url: users_path, method: :get do |f| %>
+    <div class="form-group">
+      <%= f.select :sbu,  label: "Select SBU", hide_label: true do %>
+      <option value= "all">All SBU</option>
+      <option value= "Mumbai">Mumbai</option>
+      <option value= "Delhi">Delhi</option>
+      <option value= "Bangalore">Bangalore</option>
+      <option value= "Dhaka">Dhaka</option>
+      <option value= "Jakarta">Jakarta</option>
+      <option value= "Colombo">Colombo</option>
+      <option value= "Singapore">Singapore</option>
+      <option value= "Corporate">Corporate</option>
+      <% end %>
+      <%= f.submit "Filter Users", class: 'btn btn-primary pull-right' %>
+    </div>
+    <% end %>
   </div>
 </div>
-<br>
-<% end %>
 
+<hr>
 <div class="col-md-12">
   <% @users.each do |user| %>
   <center>
-      <div class="panel panel-info ">
-        <div class="panel-heading">
-          <a href="<%= user_path(user) %>"> <h3><%= user.username %></h2></a>
-            <h5><%= user.designation %></h5>
-            <h6><%= user.Sbu %></h6>
-          </div>
-          <div class="panel-body">
-            <li class="list-group-item">
-              <h5>    Email : <%= user.email %></h5>
-            </li>
-            <li class="list-group-item">
-              <h5>  Mobile : +91- <%= user.mobileno %></h5>
-            </li>
-            <hr>
-            <% if(user.isadmin == true) %>
-            <span class="badge">Adminstrator</span>
-            <% end %>
-            <% if(user.is_project_manager == true) %>
-            <span class="badge">Co-Ordinator</span>
-            <% end %>
-            <% if(user.is_project_lead == true) %>
-            <span class="badge">Chef</span>
-            <% end %>
-          </div>
-          <div class="panel-footer panel-primary">
-            <% if (user.approved== true)%>
-            Activated (<%= link_to 'Edit',   edit_user_path(user) %>)
-            <% else %>
-            Not Activated (<%= link_to 'Edit',   edit_user_path(user) %>)
-            <% end %>
-          </div>
+    <div class="panel panel-info ">
+      <div class="panel-heading">
+        <a href="<%= user_path(user) %>"> <h3><%= user.username %></h2></a>
+          <h5><%= user.designation %></h5>
+          <h6><%= user.Sbu %></h6>
         </div>
+        <div class="panel-body">
+          <li class="list-group-item">
+            <h5>    Email : <%= user.email %></h5>
+          </li>
+          <li class="list-group-item">
+            <h5>  Mobile : +91- <%= user.mobileno %></h5>
+          </li>
+          <hr>
+          <% if(user.isadmin == true) %>
+          <span class="badge">Adminstrator</span>
+          <% end %>
+          <% if(user.is_project_manager == true) %>
+          <span class="badge">Co-Ordinator</span>
+          <% end %>
+          <% if(user.is_project_lead == true) %>
+          <span class="badge">Chef</span>
+          <% end %>
+        </div>
+        <div class="panel-footer panel-primary">
+          <% if (user.approved== true)%>
+          Activated (<%= link_to 'Edit',   edit_user_path(user) %>)
+          <% else %>
+          Not Activated (<%= link_to 'Edit',   edit_user_path(user) %>)
+          <% end %>
+        </div>
+      </div>
     </center>
     <% end %>
   </div>
