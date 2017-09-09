@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if params[:sbu]
       if (params[:sbu] == 'all')
         @users = User.paginate(:page => params[:page]).order('id DESC')
-        render json: @users
+       # render json: @users
       else
         @users = User.where(:Sbu => params[:sbu] ).paginate(:page => params[:page]).order('id DESC')
       end
