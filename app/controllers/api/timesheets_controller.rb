@@ -28,6 +28,14 @@ def create
   rescue => e
     render json: "An Error Occured Please Try Again Later".to_json, status: :conflict
 end
+     
+def update
+    @timesheet = Timesheet.find(params[:id])
+    if @timesheet.update(timesheet_params)
+      render json: @timesheet
+    end
+end
+
 
 def destroy
 @timesheet = Timesheet.find(params[:id])
