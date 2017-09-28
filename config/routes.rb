@@ -31,6 +31,7 @@ namespace :api, defaults: {format: 'json'} do
       # Timesheets API
       get '/timesheets', to: 'timesheets#index'
       post '/timesheets', to: 'timesheets#create'
+      put 'timesheets/:id', to: 'timesheets#update'
       delete 'timesheets/:id', to: 'timesheets#destroy'
       #Projection API
       get '/projections', to: 'projections#index'
