@@ -13619,3 +13619,60 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 117ms (Views: 111.3ms | ActiveRecord: 2.3ms)
 
 
+Started GET "/api/timesheets" for 127.0.0.1 at 2018-01-03 19:08:36 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::TimesheetsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"aCOjl4MNTLMnS6CofcV-WQ\":{\"token\":\"$2a$10$R0l0jORqKa9fTlrSa66sZ.qmiVSqXe1OZyP8L6HmGnFqGShVG3eUi\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.056+05:30\"}}"], ["updated_at", 2018-01-03 13:38:37 UTC], ["id", 2]]
+  [1m[35m (105.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets" WHERE "timesheets"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"aCOjl4MNTLMnS6CofcV-WQ\":{\"token\":\"$2a$10$R0l0jORqKa9fTlrSa66sZ.qmiVSqXe1OZyP8L6HmGnFqGShVG3eUi\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.056+05:30\"},\"Cxmsr7x3Cg778S-QJ_lW2A\":{\"token\":\"$2a$10$5ATV1HeboAryJvcSTjiRa.RpscjCVViJLAQyt8wpl3DhwZyLialFe\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.277+05:30\"}}"], ["updated_at", 2018-01-03 13:38:37 UTC], ["id", 2]]
+  [1m[35m (105.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 544ms (Views: 1.1ms | ActiveRecord: 215.1ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2018-01-03 19:09:48 +0530
+Processing by Api::ProjectsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"aCOjl4MNTLMnS6CofcV-WQ\":{\"token\":\"$2a$10$R0l0jORqKa9fTlrSa66sZ.qmiVSqXe1OZyP8L6HmGnFqGShVG3eUi\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.056+05:30\"},\"Cxmsr7x3Cg778S-QJ_lW2A\":{\"token\":\"$2a$10$5ATV1HeboAryJvcSTjiRa.RpscjCVViJLAQyt8wpl3DhwZyLialFe\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.277+05:30\"},\"vHRKmhYRk24ob6w_yV7hyA\":{\"token\":\"$2a$10$OUIoETubKf6AagN9e4p7aepLsFDUl8gqCRRTj3erEyV4v.Ghucn/C\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.488+05:30\"}}"], ["updated_at", 2018-01-03 13:39:48 UTC], ["id", 2]]
+  [1m[35m (96.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"aCOjl4MNTLMnS6CofcV-WQ\":{\"token\":\"$2a$10$R0l0jORqKa9fTlrSa66sZ.qmiVSqXe1OZyP8L6HmGnFqGShVG3eUi\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.056+05:30\"},\"Cxmsr7x3Cg778S-QJ_lW2A\":{\"token\":\"$2a$10$5ATV1HeboAryJvcSTjiRa.RpscjCVViJLAQyt8wpl3DhwZyLialFe\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.277+05:30\"},\"vHRKmhYRk24ob6w_yV7hyA\":{\"token\":\"$2a$10$OUIoETubKf6AagN9e4p7aepLsFDUl8gqCRRTj3erEyV4v.Ghucn/C\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.488+05:30\"},\"l_caj05o93uZuWykVsyj3w\":{\"token\":\"$2a$10$1w9lFSBxz5nkG3NY2g8I/eNWYUPJQ9QzFrdagPH.ijPYWZvAbLycq\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.750+05:30\"}}"], ["updated_at", 2018-01-03 13:39:48 UTC], ["id", 2]]
+  [1m[35m (80.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 440ms (Views: 54.3ms | ActiveRecord: 182.4ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2018-01-03 19:10:40 +0530
+Processing by Api::ProjectsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"aCOjl4MNTLMnS6CofcV-WQ\":{\"token\":\"$2a$10$R0l0jORqKa9fTlrSa66sZ.qmiVSqXe1OZyP8L6HmGnFqGShVG3eUi\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.056+05:30\"},\"Cxmsr7x3Cg778S-QJ_lW2A\":{\"token\":\"$2a$10$5ATV1HeboAryJvcSTjiRa.RpscjCVViJLAQyt8wpl3DhwZyLialFe\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.277+05:30\"},\"vHRKmhYRk24ob6w_yV7hyA\":{\"token\":\"$2a$10$OUIoETubKf6AagN9e4p7aepLsFDUl8gqCRRTj3erEyV4v.Ghucn/C\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.488+05:30\"},\"l_caj05o93uZuWykVsyj3w\":{\"token\":\"$2a$10$1w9lFSBxz5nkG3NY2g8I/eNWYUPJQ9QzFrdagPH.ijPYWZvAbLycq\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.750+05:30\"},\"Hp6oxSuJf9fXwZCD637P2A\":{\"token\":\"$2a$10$UKLWmG6/jwVZnC6QJheHieVIRidSJVuBOHIOjfdYMV2R3mHchyN5i\",\"expiry\":1516196450,\"last_token\":null,\"updated_at\":\"2018-01-03T19:10:50.309+05:30\"}}"], ["updated_at", 2018-01-03 13:40:50 UTC], ["id", 2]]
+  [1m[35m (74.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"aCOjl4MNTLMnS6CofcV-WQ\":{\"token\":\"$2a$10$R0l0jORqKa9fTlrSa66sZ.qmiVSqXe1OZyP8L6HmGnFqGShVG3eUi\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.056+05:30\"},\"Cxmsr7x3Cg778S-QJ_lW2A\":{\"token\":\"$2a$10$5ATV1HeboAryJvcSTjiRa.RpscjCVViJLAQyt8wpl3DhwZyLialFe\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.277+05:30\"},\"vHRKmhYRk24ob6w_yV7hyA\":{\"token\":\"$2a$10$OUIoETubKf6AagN9e4p7aepLsFDUl8gqCRRTj3erEyV4v.Ghucn/C\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.488+05:30\"},\"l_caj05o93uZuWykVsyj3w\":{\"token\":\"$2a$10$1w9lFSBxz5nkG3NY2g8I/eNWYUPJQ9QzFrdagPH.ijPYWZvAbLycq\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.750+05:30\"},\"Hp6oxSuJf9fXwZCD637P2A\":{\"token\":\"$2a$10$UKLWmG6/jwVZnC6QJheHieVIRidSJVuBOHIOjfdYMV2R3mHchyN5i\",\"expiry\":1516196450,\"last_token\":null,\"updated_at\":\"2018-01-03T19:10:50.309+05:30\"},\"UF5zeVB8gYbn47w7yUqlDA\":{\"token\":\"$2a$10$u6.ux4grMemONfS1y/iQhukHXvEseGVfYZEazzW5xum9riFRdipuO\",\"expiry\":1516196450,\"last_token\":null,\"updated_at\":\"2018-01-03T19:10:50.547+05:30\"}}"], ["updated_at", 2018-01-03 13:40:50 UTC], ["id", 2]]
+  [1m[35m (81.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 450ms (Views: 58.4ms | ActiveRecord: 160.7ms)
+
+
+Started GET "/api/timesheets" for 127.0.0.1 at 2018-01-03 19:10:55 +0530
+Processing by Api::TimesheetsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"aCOjl4MNTLMnS6CofcV-WQ\":{\"token\":\"$2a$10$R0l0jORqKa9fTlrSa66sZ.qmiVSqXe1OZyP8L6HmGnFqGShVG3eUi\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.056+05:30\"},\"Cxmsr7x3Cg778S-QJ_lW2A\":{\"token\":\"$2a$10$5ATV1HeboAryJvcSTjiRa.RpscjCVViJLAQyt8wpl3DhwZyLialFe\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.277+05:30\"},\"vHRKmhYRk24ob6w_yV7hyA\":{\"token\":\"$2a$10$OUIoETubKf6AagN9e4p7aepLsFDUl8gqCRRTj3erEyV4v.Ghucn/C\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.488+05:30\"},\"l_caj05o93uZuWykVsyj3w\":{\"token\":\"$2a$10$1w9lFSBxz5nkG3NY2g8I/eNWYUPJQ9QzFrdagPH.ijPYWZvAbLycq\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.750+05:30\"},\"Hp6oxSuJf9fXwZCD637P2A\":{\"token\":\"$2a$10$UKLWmG6/jwVZnC6QJheHieVIRidSJVuBOHIOjfdYMV2R3mHchyN5i\",\"expiry\":1516196450,\"last_token\":null,\"updated_at\":\"2018-01-03T19:10:50.309+05:30\"},\"UF5zeVB8gYbn47w7yUqlDA\":{\"token\":\"$2a$10$u6.ux4grMemONfS1y/iQhukHXvEseGVfYZEazzW5xum9riFRdipuO\",\"expiry\":1516196450,\"last_token\":null,\"updated_at\":\"2018-01-03T19:10:50.547+05:30\"},\"8eQMAy1RwQDa5XDn9HlprA\":{\"token\":\"$2a$10$Z5kZa6FwggukWBeqfRi0iuY9CBihmID9ZsgFXsvMZRvlm5FUk6CaC\",\"expiry\":1516196455,\"last_token\":null,\"updated_at\":\"2018-01-03T19:10:55.369+05:30\"}}"], ["updated_at", 2018-01-03 13:40:55 UTC], ["id", 2]]
+  [1m[35m (143.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTimesheet Load (0.1ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets" WHERE "timesheets"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"aCOjl4MNTLMnS6CofcV-WQ\":{\"token\":\"$2a$10$R0l0jORqKa9fTlrSa66sZ.qmiVSqXe1OZyP8L6HmGnFqGShVG3eUi\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.056+05:30\"},\"Cxmsr7x3Cg778S-QJ_lW2A\":{\"token\":\"$2a$10$5ATV1HeboAryJvcSTjiRa.RpscjCVViJLAQyt8wpl3DhwZyLialFe\",\"expiry\":1516196317,\"last_token\":null,\"updated_at\":\"2018-01-03T19:08:37.277+05:30\"},\"vHRKmhYRk24ob6w_yV7hyA\":{\"token\":\"$2a$10$OUIoETubKf6AagN9e4p7aepLsFDUl8gqCRRTj3erEyV4v.Ghucn/C\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.488+05:30\"},\"l_caj05o93uZuWykVsyj3w\":{\"token\":\"$2a$10$1w9lFSBxz5nkG3NY2g8I/eNWYUPJQ9QzFrdagPH.ijPYWZvAbLycq\",\"expiry\":1516196388,\"last_token\":null,\"updated_at\":\"2018-01-03T19:09:48.750+05:30\"},\"Hp6oxSuJf9fXwZCD637P2A\":{\"token\":\"$2a$10$UKLWmG6/jwVZnC6QJheHieVIRidSJVuBOHIOjfdYMV2R3mHchyN5i\",\"expiry\":1516196450,\"last_token\":null,\"updated_at\":\"2018-01-03T19:10:50.309+05:30\"},\"UF5zeVB8gYbn47w7yUqlDA\":{\"token\":\"$2a$10$u6.ux4grMemONfS1y/iQhukHXvEseGVfYZEazzW5xum9riFRdipuO\",\"expiry\":1516196450,\"last_token\":null,\"updated_at\":\"2018-01-03T19:10:50.547+05:30\"},\"8eQMAy1RwQDa5XDn9HlprA\":{\"token\":\"$2a$10$Z5kZa6FwggukWBeqfRi0iuY9CBihmID9ZsgFXsvMZRvlm5FUk6CaC\",\"expiry\":1516196455,\"last_token\":null,\"updated_at\":\"2018-01-03T19:10:55.369+05:30\"},\"lDET3JLPX7x-JfUHUgC8Gg\":{\"token\":\"$2a$10$j4TlyjKWfg9vyyD/RfHJrumCMOMz8PJccWUzEk7OwN13w4JpDD656\",\"expiry\":1516196455,\"last_token\":null,\"updated_at\":\"2018-01-03T19:10:55.616+05:30\"}}"], ["updated_at", 2018-01-03 13:40:55 UTC], ["id", 2]]
+  [1m[35m (99.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 445ms (Views: 0.7ms | ActiveRecord: 244.6ms)
+
+
