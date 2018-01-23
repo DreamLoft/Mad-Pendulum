@@ -13676,3 +13676,121 @@ Processing by Api::TimesheetsController#index as JSON
 Completed 200 OK in 445ms (Views: 0.7ms | ActiveRecord: 244.6ms)
 
 
+Started GET "/api/projects" for 127.0.0.1 at 2018-01-23 14:40:02 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::ProjectsController#index as JSON
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+Completed 200 OK in 99ms (Views: 49.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2018-01-23 14:40:35 +0530
+Processing by Api::ProjectsController#index as JSON
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+Completed 200 OK in 81ms (Views: 77.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2018-01-23 14:41:11 +0530
+Processing by Api::ProjectsController#index as JSON
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `per' for #<Project::ActiveRecord_Relation:0x000000054f1d20>):
+  
+app/controllers/api/projects_controller.rb:6:in `index'
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.3ms)
+Started GET "/api/projects" for 127.0.0.1 at 2018-01-23 14:41:51 +0530
+Processing by Api::ProjectsController#index as JSON
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+Completed 200 OK in 21ms (Views: 16.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2018-01-23 14:42:03 +0530
+Processing by Api::ProjectsController#index as JSON
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 10]]
+Completed 200 OK in 20ms (Views: 16.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2018-01-23 14:43:44 +0530
+Processing by Api::TasksController#index as JSON
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2018-01-23 14:44:06 +0530
+Processing by Api::TasksController#index as JSON
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 20]]
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2018-01-23 14:45:05 +0530
+Processing by Api::ProjectsController#index as JSON
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+Completed 200 OK in 22ms (Views: 17.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/projects/?page=2" for 127.0.0.1 at 2018-01-23 14:45:21 +0530
+Processing by Api::ProjectsController#index as JSON
+  Parameters: {"page"=>"2"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 10]]
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/projects/?page=3" for 127.0.0.1 at 2018-01-23 14:45:27 +0530
+Processing by Api::ProjectsController#index as JSON
+  Parameters: {"page"=>"3"}
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 20]]
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/timesheets" for 127.0.0.1 at 2018-01-23 14:46:35 +0530
+Processing by Api::TimesheetsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"XL6E7knrZhFpdVIGtnabpQ\":{\"token\":\"$2a$10$v/46KiMlAt9giu46x2635Ou4B1neFo9XbhxCeaIYUyWXEFLLnlgb2\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.717+05:30\"}}"], ["updated_at", 2018-01-23 09:16:35 UTC], ["id", 2]]
+  [1m[35m (94.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTimesheet Load (0.4ms)[0m  [1m[34mSELECT  "timesheets".* FROM "timesheets" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"XL6E7knrZhFpdVIGtnabpQ\":{\"token\":\"$2a$10$v/46KiMlAt9giu46x2635Ou4B1neFo9XbhxCeaIYUyWXEFLLnlgb2\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.717+05:30\"},\"6J0ZVSdI87hCKMvh8ZfVig\":{\"token\":\"$2a$10$bC.sfoC0yFfYqo2idjkjkecyVWKqSkaL90x3UsDOvbL.XP72PkH5y\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.944+05:30\"}}"], ["updated_at", 2018-01-23 09:16:35 UTC], ["id", 2]]
+  [1m[35m (91.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 431ms (Views: 23.8ms | ActiveRecord: 190.3ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2018-01-23 14:47:22 +0530
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"XL6E7knrZhFpdVIGtnabpQ\":{\"token\":\"$2a$10$v/46KiMlAt9giu46x2635Ou4B1neFo9XbhxCeaIYUyWXEFLLnlgb2\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.717+05:30\"},\"6J0ZVSdI87hCKMvh8ZfVig\":{\"token\":\"$2a$10$bC.sfoC0yFfYqo2idjkjkecyVWKqSkaL90x3UsDOvbL.XP72PkH5y\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.944+05:30\"},\"yIXkNAt7K5f2nPXnb1n3aA\":{\"token\":\"$2a$10$lQlDKOMg0Rl6KVtMIa9vc.3MBiQDRZE0sO3GB0XJiJqojYM8kIViO\",\"expiry\":1517908642,\"last_token\":null,\"updated_at\":\"2018-01-23T14:47:22.810+05:30\"}}"], ["updated_at", 2018-01-23 09:17:22 UTC], ["id", 2]]
+  [1m[35m (90.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"XL6E7knrZhFpdVIGtnabpQ\":{\"token\":\"$2a$10$v/46KiMlAt9giu46x2635Ou4B1neFo9XbhxCeaIYUyWXEFLLnlgb2\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.717+05:30\"},\"6J0ZVSdI87hCKMvh8ZfVig\":{\"token\":\"$2a$10$bC.sfoC0yFfYqo2idjkjkecyVWKqSkaL90x3UsDOvbL.XP72PkH5y\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.944+05:30\"},\"yIXkNAt7K5f2nPXnb1n3aA\":{\"token\":\"$2a$10$lQlDKOMg0Rl6KVtMIa9vc.3MBiQDRZE0sO3GB0XJiJqojYM8kIViO\",\"expiry\":1517908642,\"last_token\":null,\"updated_at\":\"2018-01-23T14:47:22.810+05:30\"},\"VJmc5lqyr8wzK9crLpyKZw\":{\"token\":\"$2a$10$n1q30ci5eX1/EDG2suPlqeuqPzv1EsCr6xXx4tvPBNfCxyy0IOG9i\",\"expiry\":1517908643,\"last_token\":null,\"updated_at\":\"2018-01-23T14:47:23.031+05:30\"}}"], ["updated_at", 2018-01-23 09:17:23 UTC], ["id", 2]]
+  [1m[35m (103.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 440ms (Views: 34.9ms | ActiveRecord: 197.5ms)
+
+
+Started GET "/api/users/?page=2" for 127.0.0.1 at 2018-01-23 14:47:30 +0530
+Processing by Api::UsersController#index as JSON
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"XL6E7knrZhFpdVIGtnabpQ\":{\"token\":\"$2a$10$v/46KiMlAt9giu46x2635Ou4B1neFo9XbhxCeaIYUyWXEFLLnlgb2\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.717+05:30\"},\"6J0ZVSdI87hCKMvh8ZfVig\":{\"token\":\"$2a$10$bC.sfoC0yFfYqo2idjkjkecyVWKqSkaL90x3UsDOvbL.XP72PkH5y\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.944+05:30\"},\"yIXkNAt7K5f2nPXnb1n3aA\":{\"token\":\"$2a$10$lQlDKOMg0Rl6KVtMIa9vc.3MBiQDRZE0sO3GB0XJiJqojYM8kIViO\",\"expiry\":1517908642,\"last_token\":null,\"updated_at\":\"2018-01-23T14:47:22.810+05:30\"},\"VJmc5lqyr8wzK9crLpyKZw\":{\"token\":\"$2a$10$n1q30ci5eX1/EDG2suPlqeuqPzv1EsCr6xXx4tvPBNfCxyy0IOG9i\",\"expiry\":1517908643,\"last_token\":null,\"updated_at\":\"2018-01-23T14:47:23.031+05:30\"},\"5yI0FxnzQ_VfXNLPJzsyZA\":{\"token\":\"$2a$10$BqkXeSs6GTJWrXfiqE/1zumUkp0tDjWCaaKtcFWpjELsKs6nTOeQ6\",\"expiry\":1517908650,\"last_token\":null,\"updated_at\":\"2018-01-23T14:47:30.632+05:30\"}}"], ["updated_at", 2018-01-23 09:17:30 UTC], ["id", 2]]
+  [1m[35m (75.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 10]]
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"XL6E7knrZhFpdVIGtnabpQ\":{\"token\":\"$2a$10$v/46KiMlAt9giu46x2635Ou4B1neFo9XbhxCeaIYUyWXEFLLnlgb2\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.717+05:30\"},\"6J0ZVSdI87hCKMvh8ZfVig\":{\"token\":\"$2a$10$bC.sfoC0yFfYqo2idjkjkecyVWKqSkaL90x3UsDOvbL.XP72PkH5y\",\"expiry\":1517908595,\"last_token\":null,\"updated_at\":\"2018-01-23T14:46:35.944+05:30\"},\"yIXkNAt7K5f2nPXnb1n3aA\":{\"token\":\"$2a$10$lQlDKOMg0Rl6KVtMIa9vc.3MBiQDRZE0sO3GB0XJiJqojYM8kIViO\",\"expiry\":1517908642,\"last_token\":null,\"updated_at\":\"2018-01-23T14:47:22.810+05:30\"},\"VJmc5lqyr8wzK9crLpyKZw\":{\"token\":\"$2a$10$n1q30ci5eX1/EDG2suPlqeuqPzv1EsCr6xXx4tvPBNfCxyy0IOG9i\",\"expiry\":1517908643,\"last_token\":null,\"updated_at\":\"2018-01-23T14:47:23.031+05:30\"},\"5yI0FxnzQ_VfXNLPJzsyZA\":{\"token\":\"$2a$10$BqkXeSs6GTJWrXfiqE/1zumUkp0tDjWCaaKtcFWpjELsKs6nTOeQ6\",\"expiry\":1517908650,\"last_token\":null,\"updated_at\":\"2018-01-23T14:47:30.632+05:30\"},\"tRq5tXzSG5vm3rj5amNedQ\":{\"token\":\"$2a$10$/UagFsqieA6S4iMeyIPt8.NzbKT2UhEb6SYa.JPTPyIHhLgnCU552\",\"expiry\":1517908650,\"last_token\":null,\"updated_at\":\"2018-01-23T14:47:30.834+05:30\"}}"], ["updated_at", 2018-01-23 09:17:30 UTC], ["id", 2]]
+  [1m[35m (85.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 379ms (Views: 25.1ms | ActiveRecord: 164.6ms)
+
+

@@ -4,7 +4,8 @@ class Api::UsersController < Api::ApplicationController
   #skip_before_action :verify_authenticity_token ,only: [:index, :show, :new, :edit, :create, :update , :destroy]
 
   def index
-    @users= User.all
+    page_num=params[:page]
+    @users= User.page(page_num)
     render json: @users
   end
 
@@ -18,7 +19,7 @@ class Api::UsersController < Api::ApplicationController
     end
   end
 
-  
+
   private
   def user_params
     params.require(:user).permit( :onLeave)

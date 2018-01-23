@@ -2,7 +2,8 @@
 class Api::ProjectionsController < Api::ApplicationController
       before_action :authenticate_user!
 def index
-  @projections= Projection.all
+  page_num=params[:page]
+  @projections= Projection.page(page_num)
     render json: @projections
 end
 

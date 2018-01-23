@@ -2,7 +2,9 @@ class Api::ProjectsController < Api::ApplicationController
       before_action :authenticate_user!
         #skip_before_action :verify_authenticity_token
       def index
-            @projects = Project.all
+            #@projects = Project.all
+            page_num=params[:page]
+            @projects= Project.page(page_num)
             render json: @projects
       end
 
