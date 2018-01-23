@@ -3,27 +3,16 @@ class TimesheetsController < ApplicationController
   #skip_before_action :verify_authenticity_token ,only: [:index, :show, :new, :edit, :create, :update , :destroy]
 def index
 #@timesheets= Timesheet.all.order("created_at DESC")
-if (current_user.isadmin == true  )
-  @timesheets = Timesheet.select{|a| Project.find(a.project_id).is_active == true }
-elsif (current_user.is_project_manager == true || current_user.is_project_lead== true )
-
-  @timesheets= Timesheet.select{|a|  (Project.find(a.project_id).project_lead == current_user.id ||  Project.find(a.project_id).project_manager == current_user.id ||  a.user_id == current_user.id) && Project.find(a.project_id).is_active == true }
-else
-  @timesheets= Timesheet.select{|a| a.user_id == current_user.id && Project.find(a.project_id).is_active == true }
-end
-if (!@timesheets.empty?)
-  @timesheets= @timesheets .sort_by { |h| h[:created_at]}.reverse
-end
-  @users= User.all
-  @projects = Project.where(:is_active => true)
-  @tasks= Task.all
-  respond_to do |format|
-    format.html
-    format.xlsx {
-      #render xlsx: "index", filename: "my_new_filename.xlsx"
-      response.headers['Content-Disposition'] = 'attachment; filename="all_timesheets.xlsx"'
-    }
+  if (current_user.isadmin==true)
+    @timesheets= Timesheet.order("created_at DESC").paginate(:page => params[:page])
+  
+  else
+    @timesheets= Timesheet.where(:user_id=> current_user.id).order("created_at DESC").paginate(:page => params[:page])
   end
+   @users= User.all
+   @projects = Project.where(:is_active => true)
+   @tasks= Task.all
+
 end
 
 def show

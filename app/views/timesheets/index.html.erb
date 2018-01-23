@@ -66,48 +66,44 @@
 <%= link_to 'Export to Excel', timesheets_path(format: "xlsx") , class: 'btn btn-primary'%>
 <hr>
 <ul class="list-group">
-<% @timesheets.each do |timesheet| %>
-<li class="list-group-item">
-<table class = "table table-hover ">
-  <tr>
-    <td style="width: 15%;">
-      <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>  <%= Project.find(timesheet.project_id).projectname %>
-    </td>
-    <td style="width: 15%;">
-      <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>  <%= Task.find(timesheet.task_id).taskname %>
-    </td>
-    <td style="width: 15%;">
-      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  <%=User.find(timesheet.user_id).username %>
-    </td>
-    <td style="width: 15%;">
-      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>  <%= timesheet.Tdate  %>
-    </td>
-    <td style="width: 15%;">
-      <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  <%= timesheet.timespent %> Min.
-    </td>
-    <td style="width: 15%;">
-      <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>  <%= ((timesheet.timespent / 60) *( User.find(timesheet.user_id).weight)).round(2) %> Points
-    </td>
-    <td style="width: 5%;">
-      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>  <%= timesheet.feeling %>
-    </td>
 
-    <td style="width: 15%;"><%= link_to 'Details', timesheet_path(timesheet) %></td>
-  </tr>
+<table class="table table-hover">
+  <thead>
+   <tr>
+     <th>Project</th>
+     <th>Task</th>
+     <th>User</th>
+     <th>Date</th>
+     <th>Time Spent</th>
+     <th>Feeling</th>
+     <th></th>
+   </tr>
+ </thead>
+ <tbody>
+   <% @timesheets.each do |timesheet| %>
+    <tr>
+      <td><%= Project.find(timesheet.project_id).projectname %></td>
+      <td><%= Task.find(timesheet.task_id).taskname %></td>
+      <td><%= User.find(timesheet.user_id).username %></td>
+      <td><%= timesheet.Tdate %></td>
+      <td><%= timesheet.timespent %></td>
+      <td><%= timesheet.feeling %></td>
+      <td><%= link_to 'Details', timesheet_path(timesheet) %></td>
+    </tr>
+   <% end %>
+ </tbody>
 </table>
-</li>
-<% end %>
 
-<li class="list-group-item list-group-item-warning">
-    <% if (!@timesheets.empty?) %>
-<td style="width: 15%;">Average Timesheet :- </td>
-<td style="width: 15%;"><%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x})/60).to_i/@timesheets.count %>:<%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x}).to_i%60)/@timesheets.count %> Hours || </td>
-<td style="width: 15%;"> Total Time Spent :- </td>
-<td style="width: 15%;"><%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x})/60).to_i %>:<%= ((@timesheets.pluck(:timespent).inject{|sum,x| sum +x}).to_i%60) %> Hours || </td>
-<td style="width: 15%;">Average Feeling :- </td>
-<td style="width: 5%;"><%= @timesheets.pluck(:feeling).inject{|sum,x| sum +x }.to_i/@timesheets.count %>  </td>
-<td style="width: 15%;"></td>
-<td style="width: 15%;"></td>
-<% end %>
-</li>
-</ul>
+
+
+
+
+
+
+
+
+
+
+<div class="apple_pagination">
+  <%= will_paginate @timesheets %>
+</div>
