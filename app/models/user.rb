@@ -10,7 +10,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # devise :database_authenticatable, :registerable,
   #        :recoverable, :rememberable, :trackable, :validatable , :zxcvbnable
-   self.per_page = 10
+   self.per_page = 50
 
    def active_for_authentication?
   super && approved?

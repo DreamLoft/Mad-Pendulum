@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-   self.per_page = 20
+   self.per_page = 50
 end
