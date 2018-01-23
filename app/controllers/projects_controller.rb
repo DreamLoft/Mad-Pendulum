@@ -3,7 +3,14 @@ class ProjectsController < ApplicationController
   #skip_before_action :verify_authenticity_token ,only: [:index, :show, :new, :edit, :create, :update , :destroy]
   def index
   #  @projects= Project.all.order('created_at DESC').paginate(:page => params[:page])
-  @projects = Project.where( :is_active => true).order('created_at DESC').paginate(:page => params[:page])
+  if params[:project_name]
+    @projects= Project.where(:projectname => params[:project_name]).paginate(:page => params[:page])
+  else
+    @projects = Project.where( :is_active => true).order('created_at DESC').paginate(:page => params[:page])
+  end
+  #render json: @projects
+
+  #@projects = Project.where( :is_active => true).order('created_at DESC').paginate(:page => params[:page])
 
 
 

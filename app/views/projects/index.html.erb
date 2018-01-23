@@ -6,6 +6,22 @@ table {
     width:100%;
 }
 </style>
+
+<div class="row">
+    <div class="col-lg-11">
+<%=  bootstrap_form_tag  url: projects_path, method: :get do |f| %>
+<div class="input-group">
+  <span class="input-group-btn">
+    <input type="text" name= "project_name" placeholder= "Enter Project name you want to search here"  class="form-control"> <br>
+  <%= f.submit "Search" %>
+</span>
+</div>
+<% end %>
+</div>
+</div>
+<hr>
+
+
 <% @projects.each do |project| %>
 <br/>
 <div class="panel panel-info">
@@ -86,5 +102,5 @@ table {
 </div>
 <% end %>
 <div class="apple_pagination">
-  <%= will_paginate @projects , :container => false %>
+  <%= will_paginate @projects , :container => true %>
   </div>

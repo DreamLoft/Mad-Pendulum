@@ -13794,3 +13794,1171 @@ Processing by Api::UsersController#index as JSON
 Completed 200 OK in 379ms (Views: 25.1ms | ActiveRecord: 164.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-01-23 14:55:07 +0530
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 56ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/my/users/sign_in" for 127.0.0.1 at 2018-01-23 14:55:07 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (759.4ms)
+Completed 200 OK in 927ms (Views: 875.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/my/users/sign_in" for 127.0.0.1 at 2018-01-23 14:55:13 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Yy/YEoRFnwNDRr0cFOK+hKlB5nKK1NiehFUvyZlz0Njhqn8DZnJ3KmLPINCJ5CApwkBaGzz3mFnOgoePfiNmVQ==", "user"=>{"email"=>"sharma26sh@yahoo.in", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sharma26sh@yahoo.in"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2018-01-23 09:25:13 UTC], ["last_sign_in_at", 2017-09-08 19:50:13 UTC], ["sign_in_count", 48], ["updated_at", 2018-01-23 09:25:13 UTC], ["id", 36]]
+  [1m[35m (81.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 366ms (ActiveRecord: 82.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 14:55:13 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  Rendered projects/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 119ms (Views: 105.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 14:55:18 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  Rendered projects/index.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 113ms (Views: 104.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 14:55:22 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  Rendered projects/index.html.erb within layouts/application (6.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 137ms (Views: 130.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 14:56:02 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  Rendered projects/index.html.erb within layouts/application (8.1ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 103ms (Views: 97.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 15:02:21 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.2ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 98], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 97], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 96], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 95], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 94], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 93], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 92], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 91], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 90], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 89], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  Rendered projects/index.html.erb within layouts/application (116.4ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 188ms (Views: 178.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 15:03:25 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.1ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.0ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 126], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 125], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 124], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 123], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 122], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 121], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 120], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 119], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 118], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  Rendered projects/index.html.erb within layouts/application (48.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 123ms (Views: 113.5ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 15:05:01 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 126], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 125], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 124], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 123], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 122], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 121], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 120], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 119], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 118], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  Rendered projects/index.html.erb within layouts/application (51.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 132ms (Views: 119.8ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 15:05:10 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (2.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.6ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.2ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 126], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 125], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 124], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 123], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 122], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 121], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 120], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 119], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 118], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  Rendered projects/index.html.erb within layouts/application (77.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 158ms (Views: 141.7ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 15:05:17 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (2.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.3ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 126], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 125], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.3ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 124], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 123], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.2ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 122], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 121], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 120], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 119], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 118], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  Rendered projects/index.html.erb within layouts/application (80.1ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 177ms (Views: 158.0ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 15:09:52 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.4ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.3ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 126], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 125], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 124], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 123], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 122], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 121], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 120], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 119], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 118], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  Rendered projects/index.html.erb within layouts/application (78.9ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 167ms (Views: 152.3ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 15:10:35 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 126], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 125], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 124], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 123], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 122], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 121], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 120], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 119], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 118], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  Rendered projects/index.html.erb within layouts/application (56.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 139ms (Views: 126.3ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 15:10:42 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (2.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.3ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 126], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 125], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.2ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 124], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 123], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 122], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.3ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 121], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 120], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 119], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 118], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  Rendered projects/index.html.erb within layouts/application (74.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 182ms (Views: 163.1ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 15:10:46 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.4ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.2ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 126], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 125], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 124], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 123], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 122], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 121], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 120], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 119], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 118], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  Rendered projects/index.html.erb within layouts/application (73.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 152ms (Views: 134.7ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 15:10:56 +0530
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."is_active" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["is_active", true], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.4ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 126], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 125], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 124], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 123], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 122], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 121], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 120], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 119], ["user_id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 118], ["user_id", 36], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  Rendered projects/index.html.erb within layouts/application (69.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 151ms (Views: 135.0ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/projects?utf8=%E2%9C%93&project_name=TomPetty2&commit=Search" for 127.0.0.1 at 2018-01-23 15:12:02 +0530
+Processing by ProjectsController#index as HTML
+  Parameters: {"utf8"=>"✓", "project_name"=>"TomPetty2", "commit"=>"Search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 0.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/projects?utf8=%E2%9C%93&project_name=TomPetty2&commit=Search" for 127.0.0.1 at 2018-01-23 15:13:47 +0530
+Processing by ProjectsController#index as HTML
+  Parameters: {"utf8"=>"✓", "project_name"=>"TomPetty2", "commit"=>"Search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects?utf8=%E2%9C%93&project_name=TomPetty2&commit=Search" for 127.0.0.1 at 2018-01-23 15:13:56 +0530
+Processing by ProjectsController#index as HTML
+  Parameters: {"utf8"=>"✓", "project_name"=>"TomPetty2", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."projectname" = ?[0m  [["projectname", "TomPetty2"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  Rendered projects/index.html.erb within layouts/application (44.0ms)
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `total_pages' for #<Project::ActiveRecord_Relation:0x00000005961ef0>):
+    102: </div>
+    103: <% end %>
+    104: <div class="apple_pagination">
+    105:   <%= will_paginate @projects , :container => false %>
+    106:   </div>
+  
+app/views/projects/index.html.erb:105:in `_app_views_projects_index_html_erb___1207697818289443205_47177640'
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.0ms)
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.7ms)
+Started GET "/projects?utf8=%E2%9C%93&project_name=TomPetty2&commit=Search" for 127.0.0.1 at 2018-01-23 15:14:52 +0530
+Processing by ProjectsController#index as HTML
+  Parameters: {"utf8"=>"✓", "project_name"=>"TomPetty2", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."projectname" = ?[0m  [["projectname", "TomPetty2"]]
+Completed 200 OK in 60ms (Views: 10.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2018-01-23 15:20:26 +0530
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (32.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 149ms (Views: 94.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/projects?utf8=%E2%9C%93&project_name=TomPetty2&commit=Search" for 127.0.0.1 at 2018-01-23 15:20:30 +0530
+Processing by ProjectsController#index as HTML
+  Parameters: {"utf8"=>"✓", "project_name"=>"TomPetty2", "commit"=>"Search"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."projectname" = ?[0m  [["projectname", "TomPetty2"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  Rendered projects/index.html.erb within layouts/application (34.9ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 3.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `total_pages' for #<Project::ActiveRecord_Relation:0x007fd2a493d108>):
+    102: </div>
+    103: <% end %>
+    104: <div class="apple_pagination">
+    105:   <%= will_paginate @projects , :container => false %>
+    106:   </div>
+  
+app/views/projects/index.html.erb:105:in `_app_views_projects_index_html_erb___1207697818289443205_70271340501580'
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.0ms)
+Started GET "/projects?utf8=%E2%9C%93&project_name=TomPetty2&commit=Search" for 127.0.0.1 at 2018-01-23 15:20:43 +0530
+Processing by ProjectsController#index as HTML
+  Parameters: {"utf8"=>"✓", "project_name"=>"TomPetty2", "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."projectname" = ?[0m  [["projectname", "TomPetty2"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.3ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  Rendered projects/index.html.erb within layouts/application (37.2ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 4.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `total_pages' for #<Project::ActiveRecord_Relation:0x00000005ac9e78>):
+    102: </div>
+    103: <% end %>
+    104: <div class="apple_pagination">
+    105:   <%= will_paginate @projects , :container => true %>
+    106:   </div>
+  
+app/views/projects/index.html.erb:105:in `_app_views_projects_index_html_erb___1207697818289443205_47562180'
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/skeleton/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.3ms)
+Started GET "/projects?utf8=%E2%9C%93&project_name=TomPetty2&commit=Search" for 127.0.0.1 at 2018-01-23 15:22:30 +0530
+Processing by ProjectsController#index as HTML
+  Parameters: {"utf8"=>"✓", "project_name"=>"TomPetty2", "commit"=>"Search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."projectname" = ?[0m  [["projectname", "TomPetty2"]]
+Completed 200 OK in 52ms (Views: 12.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/projects?utf8=%E2%9C%93&project_name=TomPetty2&commit=Search" for 127.0.0.1 at 2018-01-23 15:23:44 +0530
+Processing by ProjectsController#index as HTML
+  Parameters: {"utf8"=>"✓", "project_name"=>"TomPetty2", "commit"=>"Search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."projectname" = ? LIMIT ? OFFSET ?[0m  [["projectname", "TomPetty2"], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  Rendered projects/index.html.erb within layouts/application (36.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 142ms (Views: 98.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/projects?utf8=%E2%9C%93&project_name=TomPetty2&commit=Search" for 127.0.0.1 at 2018-01-23 15:23:53 +0530
+Processing by ProjectsController#index as HTML
+  Parameters: {"utf8"=>"✓", "project_name"=>"TomPetty2", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."projectname" = ? LIMIT ? OFFSET ?[0m  [["projectname", "TomPetty2"], ["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProjection Load (0.1ms)[0m  [1m[34mSELECT  "projections".* FROM "projections" WHERE "projections"."project_id" = ? AND "projections"."user_id" = ? LIMIT ?[0m  [["project_id", 127], ["user_id", 36], ["LIMIT", 1]]
+  Rendered projects/index.html.erb within layouts/application (34.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 140ms (Views: 99.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/projects/127" for 127.0.0.1 at 2018-01-23 15:24:01 +0530
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"127"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 127], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "tasks"."task_category" FROM "tasks"[0m
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  Rendered projects/show.html.erb within layouts/application (20.5ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 114ms (Views: 102.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/projects/127" for 127.0.0.1 at 2018-01-23 15:27:21 +0530
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"127"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 127], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.2ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "tasks"."task_category" FROM "tasks"[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  Rendered projects/show.html.erb within layouts/application (15.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 144ms (Views: 77.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-01-23 15:27:24 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY id DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (17.6ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 90ms (Views: 84.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-01-23 15:27:36 +0530
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "tasks"."task_category" FROM "tasks"[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  [1m[36mTimesheet Load (0.1ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendered tasks/index.html.erb within layouts/application (12.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 81ms (Views: 76.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/timesheets" for 127.0.0.1 at 2018-01-23 15:27:37 +0530
+Processing by TimesheetsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mTimesheet Load (0.5ms)[0m  [1m[34mSELECT "timesheets".* FROM "timesheets"[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  Rendering timesheets/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  [1m[36mProject Load (2.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."is_active" = ?[0m  [["is_active", true]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks"[0m
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered timesheets/index.html.erb within layouts/application (91.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 188ms (Views: 171.0ms | ActiveRecord: 7.0ms)
+
+
