@@ -44,6 +44,7 @@ namespace :api, defaults: {format: 'json'} do
       get '/data/:id', to:'data#show'
       # Project Timesheets api
       get 'projects/:project_id/timesheets', to: 'timesheets#project_timesheets'
+      get 'projects/:project_id/projections', to: 'projections#project_projections'
 #  resources :projects, :tasks, :timesheets
 end
 

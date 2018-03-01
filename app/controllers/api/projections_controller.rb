@@ -22,6 +22,12 @@ def create
       render json: @projection.errors, status: :unprocessable_entity
     end
 end
+def project_projections
+  page_num=params[:page]
+  project_id= params[:project_id]
+  @projections= Projection.where("project_id = ? ", project_id).page(page_num)
+  render json: @projections
+end
 
 private
 def projection_params
