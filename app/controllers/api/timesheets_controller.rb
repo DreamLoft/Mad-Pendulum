@@ -49,6 +49,12 @@ def destroy
 @timesheet.destroy
    render json: "Deleted", status: :destroyed
 end
+def project_timesheets
+  page_num=params[:page]  
+  project_id= params[:project_id]
+  @timesheets= Timesheet.where("project_id = ? ", project_id).page(page_num)
+  render json: @timesheets
+end
 
 private
 def timesheet_params
