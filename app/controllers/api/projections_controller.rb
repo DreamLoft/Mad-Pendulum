@@ -6,7 +6,8 @@ def index
   if current_user.isadmin
     @projections= Projection.page(page_num)
   elsif (current_user.is_project_lead || current_user.is_project_manager)
-    @projections= Projection.joins(:project).where("projects.sbu = ? ", current_user.Sbu).page(page_num)
+    #@projections= Projection.joins(:project).where("projects.sbu = ? ", current_user.Sbu).page(page_num)
+    @projections= Projection.where("project_id in  ? ", Project.where("project_lead = ? or project_manager = ?",current_user.id , current_user.id ).pluck(:project_id)).page(page_num)
   else
     @projections= Projection.where("user_id = ? ",current_user.id).page(page_num)
   end

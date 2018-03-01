@@ -7,7 +7,8 @@ def index
   if current_user.isadmin
     @timesheets= Timesheet.page(page_num)
   elsif (current_user.is_project_lead || current_user.is_project_manager)
-    @timesheets= Timesheet.joins(:project).where("projects.sbu = ? ", current_user.Sbu).page(page_num)
+    #@timesheets= Timesheet.joins(:project).where("projects.sbu = ? ", current_user.Sbu).page(page_num)
+    @timesheets= Timesheet.where("project_id in  ? ", Project.where("project_lead = ? or project_manager = ?",current_user.id , current_user.id ).pluck(:project_id)).page(page_num)
   else
     @timesheets= Timesheet.where("user_id = ? ",current_user.id).page(page_num)
   end
@@ -50,7 +51,7 @@ def destroy
    render json: "Deleted", status: :destroyed
 end
 def project_timesheets
-  page_num=params[:page]  
+  page_num=params[:page]
   project_id= params[:project_id]
   @timesheets= Timesheet.where("project_id = ? ", project_id).page(page_num)
   render json: @timesheets
