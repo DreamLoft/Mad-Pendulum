@@ -8,7 +8,8 @@ def index
     @timesheets= Timesheet.page(page_num)
   elsif (current_user.is_project_lead || current_user.is_project_manager)
     #@timesheets= Timesheet.joins(:project).where("projects.sbu = ? ", current_user.Sbu).page(page_num)
-    @timesheets= Timesheet.where("project_id in  ? ", Project.where("project_lead = ? or project_manager = ?",current_user.id , current_user.id ).pluck(:project_id)).page(page_num)
+    #not working in production
+    @timesheets= Timesheet.where("project_id IN  (?) ", Project.where("project_lead = ? or project_manager = ?", current_user.id , current_user.id ).pluck(:id)).page(page_num)
   else
     @timesheets= Timesheet.where("user_id = ? ",current_user.id).page(page_num)
   end
