@@ -3,7 +3,13 @@ class Api::ProjectionsController < Api::ApplicationController
       before_action :authenticate_user!
 def index
   page_num=params[:page]
-  @projections= Projection.page(page_num)
+  if current_user.isadmin
+    @projections= Projection.page(page_num)
+  elsif (current_user.is_project_lead || current_user.is_project_manager)
+    @projections= Projection.joins(:project).where("projects.sbu = ? ", current_user.Sbu).page(page_num)
+  else
+    @projections= Projection.where("user_id = ? ",current_user.id).page(page_num)
+  end
     render json: @projections
 end
 

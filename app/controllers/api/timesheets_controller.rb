@@ -4,17 +4,13 @@ class Api::TimesheetsController < Api::ApplicationController
   #skip_before_action :verify_authenticity_token ,only: [:index, :show, :new, :edit, :create, :update , :destroy]
 def index
   page_num=params[:page]
-  @timesheets= Timesheet.page(page_num)
-  #  @timesheets= []
-    # if (current_user.is_project_manager)
-    #   pros= Project.where("project_manager = ? OR project_lead= ? ", current_user.id , current_user.id).pluck(:id)
-    #   @timesheets= Timesheet.where(project_id: pros)
-    # elsif (current_user.is_project_lead)
-    #   pros= Project.where("project_manager = ? OR project_lead= ? ", current_user.id , current_user.id).pluck(:id)
-    #   @timesheets= Timesheet.where(project_id: pros)
-    # else
-    #   @timesheets= Timesheet.where('user_id' => current_user.id)
-    # end
+  if current_user.isadmin
+    @timesheets= Timesheet.page(page_num)
+  elsif (current_user.is_project_lead || current_user.is_project_manager)
+    @timesheets= Timesheet.joins(:project).where("projects.sbu = ? ", current_user.Sbu).page(page_num)
+  else
+    @timesheets= Timesheet.where("user_id = ? ",current_user.id).page(page_num)
+  end
     render json: @timesheets
 end
 
