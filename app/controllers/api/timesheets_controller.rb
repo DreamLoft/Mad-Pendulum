@@ -11,7 +11,7 @@ def index
     #not working in production
     user_timesheets= Timesheet.where("project_id IN  (?) ", Project.where("project_lead = ? or project_manager = ?", current_user.id , current_user.id ).pluck(:id)).page(page_num)
      my_timesheets= Timesheet.where("user_id= ? ",current_user.id)
-    @timesheets= user_timesheets.concat(my_timesheets)
+    @timesheets= user_timesheets + my_timesheets
   else
     @timesheets= Timesheet.where("user_id = ? ",current_user.id).page(page_num)
   end
