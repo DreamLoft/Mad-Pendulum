@@ -4,11 +4,7 @@ class Api::ProjectsController < Api::ApplicationController
       def index
             #@projects = Project.all
             page_num=params[:page]
-            if current_user.isadmin
               @projects= Project.page(page_num)
-            else
-              @projects = Project.where(:sbu => current_user.Sbu).page(page_num)
-            end
             render json: @projects
       end
 
