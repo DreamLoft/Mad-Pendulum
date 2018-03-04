@@ -5,13 +5,12 @@ class Api::TimesheetsController < Api::ApplicationController
 def index
   page_num=params[:page]
   if current_user.isadmin
-    @timesheets= Timesheet.page(page_num)
+    #@timesheets= Timesheet.page(page_num)
+    @timesheets= Timesheet.where("user_id= ? OR project_id IN  (?) ",current_user.id, Project.where("project_lead = ? or project_manager = ?", current_user.id , current_user.id ).pluck(:id)).page(page_num)
   elsif (current_user.is_project_lead || current_user.is_project_manager)
     #@timesheets= Timesheet.joins(:project).where("projects.sbu = ? ", current_user.Sbu).page(page_num)
     #not working in production
-    user_timesheets= Timesheet.where("user_id= ? OR project_id IN  (?) ",current_user.id, Project.where("project_lead = ? or project_manager = ?", current_user.id , current_user.id ).pluck(:id)).page(page_num)
-     my_timesheets= Timesheet.where("user_id= ? ",current_user.id)
-    @timesheets= user_timesheets + my_timesheets
+    @timesheets= Timesheet.where("user_id= ? OR project_id IN  (?) ",current_user.id, Project.where("project_lead = ? or project_manager = ?", current_user.id , current_user.id ).pluck(:id)).page(page_num)
   else
     @timesheets= Timesheet.where("user_id = ? ",current_user.id).page(page_num)
   end
